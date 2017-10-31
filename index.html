@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;php&quot;,&quot;java&quot;,&quot;python&quot;,&quot;csharp&quot;,&quot;javascript&quot;,&quot;ruby&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,10 +211,12 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="php">PHP</a>
+              <a href="#" data-language-name="java">Java</a>
+              <a href="#" data-language-name="python">Python</a>
+              <a href="#" data-language-name="csharp">C#</a>
+              <a href="#" data-language-name="javascript">node.js</a>
+              <a href="#" data-language-name="ruby">Ruby</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -222,166 +224,1796 @@
         <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+            <a href="#intro" class="toc-h1 toc-link" data-title="Intro">Intro</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#api-reference" class="toc-h1 toc-link" data-title="API reference">API reference</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#create-order" class="toc-h2 toc-link" data-title="Create Order">Create Order</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#get-link" class="toc-h2 toc-link" data-title="Get Link">Get Link</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#get-status" class="toc-h2 toc-link" data-title="Get Status">Get Status</a>
+                  </li>
+                  <li>
+                    <a href="#trigger-payment-email" class="toc-h2 toc-link" data-title="Trigger Payment Email">Trigger Payment Email</a>
+                  </li>
+                  <li>
+                    <a href="#initiate-refund" class="toc-h2 toc-link" data-title="Initiate Refund">Initiate Refund</a>
+                  </li>
+                  <li>
+                    <a href="#fetch-transactions" class="toc-h2 toc-link" data-title="Fetch Transactions">Fetch Transactions</a>
+                  </li>
+                  <li>
+                    <a href="#fetch-refunds" class="toc-h2 toc-link" data-title="Fetch Refunds">Fetch Refunds</a>
+                  </li>
+                  <li>
+                    <a href="#fetch-settlements" class="toc-h2 toc-link" data-title="Fetch Settlements">Fetch Settlements</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#payment-gateway-integration" class="toc-h1 toc-link" data-title="Payment Gateway Integration">Payment Gateway Integration</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#checkout-form" class="toc-h2 toc-link" data-title="Checkout Form">Checkout Form</a>
+                  </li>
+                  <li>
+                    <a href="#merchant-hosted" class="toc-h2 toc-link" data-title="Merchant Hosted">Merchant Hosted</a>
+                  </li>
+                  <li>
+                    <a href="#api-integration" class="toc-h2 toc-link" data-title="API Integration">API Integration</a>
+                  </li>
+                  <li>
+                    <a href="#mobile-app" class="toc-h2 toc-link" data-title="Mobile App">Mobile App</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#payment-response" class="toc-h1 toc-link" data-title="Payment Response">Payment Response</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#response-parameters-9" class="toc-h2 toc-link" data-title="Response Parameters">Response Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#hash-generation" class="toc-h2 toc-link" data-title="Hash Generation">Hash Generation</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#test-data" class="toc-h1 toc-link" data-title="Test Data">Test Data</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#test-card" class="toc-h2 toc-link" data-title="Test Card">Test Card</a>
+                  </li>
+                  <li>
+                    <a href="#test-net-banking" class="toc-h2 toc-link" data-title="Test Net Banking">Test Net Banking</a>
+                  </li>
+              </ul>
           </li>
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+            <li><span>&copy;</span> <a href='https://www.gocashfree.com'>CashFree 2017</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+        <h1 id='intro'>Intro</h1>
+<p>Welcome to the CashFree API! You can use this to access CashFree API endpoints, which allows you to create orders, get order status, send notification,etc...</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>We have language bindings in Shell and Php! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<h1 id='api-reference'>API reference</h1>
+<p><b>Test EndPoint:</b> <code>https://test.gocashfree.com/</code></p>
 
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p><b>Prod EndPoint:</b> <code>https://api.gocashfree.com/</code></p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>CashFree uses API keys to allow access to the API. Once you have signed up at our merchant site, you will be able to retreive your AppId and SecretKey (API keys).</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
+<p>CashFree expects API key to be included in all API requests to the server.<br/>
+Use the endpoint <code>/api/v1/credentials/verify</code> to verify your credentials first (check <b>API reference</b> section).</p>
+<h2 id='create-order'>Create Order</h2>
+<p>To create orders.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<p><code>Method: POST</code><br/>
+<code>Content-Type: application/x-www-form-urlencoded</code> <br/>
+<code>Endpoint: /api/v1/order/create</code></p>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+   <span class="nv">$apiEndpoint</span> <span class="o">=</span> <span class="s2">"https://test.gocashfree.com/"</span><span class="p">;</span>
+   <span class="nv">$opUrl</span> <span class="o">=</span> <span class="nv">$apiEndpoint</span><span class="o">.</span><span class="s2">"api/v1/order/create"</span><span class="p">;</span>
+
+   <span class="nv">$cf_request</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"appId"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"&lt;your_app_id&gt;"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"secretKey"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"&lt;your_secret_key&gt;"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"orderId"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"ORDER-104"</span><span class="p">;</span> 
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"orderAmount"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"orderNote"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Subscription"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"customerPhone"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"9000012345"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"customerName"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Test Name"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"customerEmail"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"test@gocashfree.com"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"returnUrl"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"https://example.com/return"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"notifyUrl"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"https://example.com/notify"</span><span class="p">;</span>
+
+   <span class="nv">$timeout</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+   <span class="nv">$request_string</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+   <span class="k">foreach</span><span class="p">(</span><span class="nv">$cf_request</span> <span class="k">as</span> <span class="nv">$key</span><span class="o">=&gt;</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nv">$request_string</span> <span class="o">.=</span> <span class="nv">$key</span><span class="o">.</span><span class="s1">'='</span><span class="o">.</span><span class="nb">rawurlencode</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span><span class="o">.</span><span class="s1">'&amp;'</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span><span class="s2">"</span><span class="nv">$opUrl</span><span class="s2">?"</span><span class="p">);</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span><span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$cf_request</span><span class="p">));</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span><span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nv">$request_string</span><span class="p">);</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_TIMEOUT</span><span class="p">,</span> <span class="nv">$timeout</span><span class="p">);</span>
+   <span class="nv">$curl_result</span><span class="o">=</span><span class="nb">curl_exec</span> <span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+   <span class="nb">curl_close</span> <span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+   <span class="nv">$jsonResponse</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$curl_result</span><span class="p">);</span>
+   <span class="k">if</span> <span class="p">(</span><span class="nv">$jsonResponse</span><span class="o">-&gt;</span><span class="p">{</span><span class="s1">'status'</span><span class="p">}</span> <span class="o">==</span> <span class="s2">"OK"</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nv">$paymentLink</span> <span class="o">=</span> <span class="nv">$jsonResponse</span><span class="o">-&gt;</span><span class="p">{</span><span class="s2">"paymentLink"</span><span class="p">};</span>
+     <span class="c1">//Send this payment link to customer over email/SMS OR redirect to this link on browser
+</span>   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">//Log request, $jsonResponse["reason"]
+</span>   <span class="p">}</span>   
+<span class="cp">?&gt;</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code>
+<span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.IO</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Text</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">enum</span> <span class="n">HttpVerb</span>
+<span class="p">{</span>
+    <span class="n">GET</span><span class="p">,</span>
+    <span class="n">POST</span><span class="p">,</span>
+    <span class="n">PUT</span><span class="p">,</span>
+    <span class="n">DELETE</span>
+<span class="p">}</span>
+
+<span class="k">namespace</span> <span class="nn">HttpUtils</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">class</span> <span class="nc">RestClient</span>
+  <span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">EndPoint</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="n">HttpVerb</span> <span class="n">Method</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">ContentType</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">PostData</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+
+
+    <span class="k">public</span> <span class="nf">RestClient</span><span class="p">(</span><span class="kt">string</span> <span class="n">endpoint</span><span class="p">,</span> <span class="n">HttpVerb</span> <span class="n">method</span><span class="p">,</span> <span class="kt">string</span> <span class="n">postData</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">EndPoint</span> <span class="p">=</span> <span class="n">endpoint</span><span class="p">;</span>
+      <span class="n">Method</span> <span class="p">=</span> <span class="n">method</span><span class="p">;</span>
+      <span class="n">ContentType</span> <span class="p">=</span> <span class="s">"application/x-www-form-urlencoded"</span><span class="p">;</span>
+      <span class="n">PostData</span> <span class="p">=</span> <span class="n">postData</span><span class="p">;</span>
+    <span class="p">}</span>
+
+
+    <span class="k">public</span> <span class="kt">string</span> <span class="nf">MakeRequest</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="k">return</span> <span class="nf">MakeRequest</span><span class="p">(</span><span class="s">""</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="kt">string</span> <span class="nf">MakeRequest</span><span class="p">(</span><span class="kt">string</span> <span class="n">parameters</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="p">(</span><span class="n">HttpWebRequest</span><span class="p">)</span><span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="n">EndPoint</span> <span class="p">+</span> <span class="n">parameters</span><span class="p">);</span>
+
+      <span class="n">request</span><span class="p">.</span><span class="n">Method</span> <span class="p">=</span> <span class="n">Method</span><span class="p">.</span><span class="nf">ToString</span><span class="p">();</span>
+      <span class="n">request</span><span class="p">.</span><span class="n">ContentLength</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+      <span class="n">request</span><span class="p">.</span><span class="n">ContentType</span> <span class="p">=</span> <span class="n">ContentType</span><span class="p">;</span>
+
+      <span class="k">if</span> <span class="p">(!</span><span class="kt">string</span><span class="p">.</span><span class="nf">IsNullOrEmpty</span><span class="p">(</span><span class="n">PostData</span><span class="p">)</span> <span class="p">&amp;&amp;</span> <span class="n">Method</span> <span class="p">==</span> <span class="n">HttpVerb</span><span class="p">.</span><span class="n">POST</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">encoding</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">UTF8Encoding</span><span class="p">();</span>
+        <span class="kt">var</span> <span class="n">bytes</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="nf">GetEncoding</span><span class="p">(</span><span class="s">"iso-8859-1"</span><span class="p">).</span><span class="nf">GetBytes</span><span class="p">(</span><span class="n">PostData</span><span class="p">);</span>
+        <span class="n">request</span><span class="p">.</span><span class="n">ContentLength</span> <span class="p">=</span> <span class="n">bytes</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
+
+        <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">writeStream</span> <span class="p">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">())</span>
+        <span class="p">{</span>
+          <span class="n">writeStream</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">bytes</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">bytes</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+
+      <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">response</span> <span class="p">=</span> <span class="p">(</span><span class="n">HttpWebResponse</span><span class="p">)</span><span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">())</span>
+      <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">responseValue</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">StatusCode</span> <span class="p">!=</span> <span class="n">HttpStatusCode</span><span class="p">.</span><span class="n">OK</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="kt">var</span> <span class="n">message</span> <span class="p">=</span> <span class="n">String</span><span class="p">.</span><span class="nf">Format</span><span class="p">(</span><span class="s">"Request failed. Received HTTP {0}"</span><span class="p">,</span> <span class="n">response</span><span class="p">.</span><span class="n">StatusCode</span><span class="p">);</span>
+     <span class="c1">//Parse JSON response here</span>
+          <span class="k">throw</span> <span class="k">new</span> <span class="nf">ApplicationException</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// grab the response</span>
+        <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">responseStream</span> <span class="p">=</span> <span class="n">response</span><span class="p">.</span><span class="nf">GetResponseStream</span><span class="p">())</span>
+        <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">responseStream</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+            <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">reader</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamReader</span><span class="p">(</span><span class="n">responseStream</span><span class="p">))</span>
+            <span class="p">{</span>
+              <span class="n">responseValue</span> <span class="p">=</span> <span class="n">reader</span><span class="p">.</span><span class="nf">ReadToEnd</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">responseValue</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">()</span> <span class="p">{</span>
+       <span class="n">String</span> <span class="n">endPoint</span> <span class="p">=</span> <span class="s">"https://test.gocashfree.com/api/v1/order/create"</span><span class="p">;</span>
+
+       <span class="n">String</span> <span class="n">appId</span> <span class="p">=</span> <span class="s">"&lt;Your_App_id&gt;"</span><span class="p">;</span>
+       <span class="n">String</span> <span class="n">secretKey</span> <span class="p">=</span> <span class="s">"&lt;Your_Secret_key&gt;"</span><span class="p">;</span>
+       <span class="n">String</span> <span class="n">orderId</span> <span class="p">=</span> <span class="s">"ASP-102"</span><span class="p">;</span>
+       <span class="n">String</span> <span class="n">orderAmount</span> <span class="p">=</span> <span class="s">"100"</span><span class="p">;</span>
+       <span class="n">String</span> <span class="n">customerPhone</span> <span class="p">=</span> <span class="s">"9000012345"</span><span class="p">;</span>
+       <span class="n">String</span> <span class="n">customerName</span> <span class="p">=</span> <span class="s">"Test Name"</span><span class="p">;</span>
+       <span class="n">String</span> <span class="n">customerEmail</span> <span class="p">=</span> <span class="s">"user@gocashfree.com"</span><span class="p">;</span>
+       <span class="n">String</span> <span class="n">orderNote</span> <span class="p">=</span> <span class="s">"Bill for services"</span><span class="p">;</span>
+
+       <span class="n">String</span> <span class="n">postData</span> <span class="p">=</span> <span class="s">"appId="</span> <span class="p">+</span> <span class="n">appId</span><span class="p">;</span>
+       <span class="n">postData</span> <span class="p">+=</span> <span class="s">"&amp;secretKey="</span> <span class="p">+</span> <span class="n">secretKey</span><span class="p">;</span>
+       <span class="n">postData</span> <span class="p">+=</span> <span class="s">"&amp;orderId="</span> <span class="p">+</span> <span class="n">orderId</span><span class="p">;</span>
+       <span class="n">postData</span> <span class="p">+=</span> <span class="s">"&amp;orderAmount="</span> <span class="p">+</span> <span class="n">orderAmount</span><span class="p">;</span>
+       <span class="n">postData</span> <span class="p">+=</span> <span class="s">"&amp;customerPhone="</span> <span class="p">+</span> <span class="n">customerPhone</span><span class="p">;</span>
+       <span class="n">postData</span> <span class="p">+=</span> <span class="s">"&amp;customerName="</span> <span class="p">+</span> <span class="n">customerName</span><span class="p">;</span>
+       <span class="n">postData</span> <span class="p">+=</span> <span class="s">"&amp;customerEmail="</span> <span class="p">+</span> <span class="n">customerEmail</span><span class="p">;</span>
+       <span class="n">postData</span> <span class="p">+=</span> <span class="s">"&amp;orderNote="</span> <span class="p">+</span> <span class="n">orderNote</span><span class="p">;</span>
+
+       <span class="n">RestClient</span> <span class="n">rc</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="n">endPoint</span><span class="p">,</span> <span class="n">HttpVerb</span><span class="p">.</span><span class="n">POST</span><span class="p">,</span> <span class="n">postData</span><span class="p">);</span>
+       <span class="n">String</span> <span class="n">response</span> <span class="p">=</span> <span class="n">rc</span><span class="p">.</span><span class="nf">MakeRequest</span><span class="p">();</span>
+       <span class="c1">//parse response to get a json object. Name the object as responseObj</span>
+      <span class="c1">// Redirect the user to responseObj.paymentLink</span>
+
+  <span class="p">}</span> 
+<span class="p">}</span>
+</code></pre><h3 id='post-parameters'>POST Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>appId*</td>
+<td>Your app id</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>secretKey*</td>
+<td>Secret Key</td>
+</tr>
+<tr>
+<td>orderId*</td>
+<td>Order/Reference Id (alphanumeric, max-len 100)</td>
+</tr>
+<tr>
+<td>orderAmount*</td>
+<td>Bill amount of the order (numeric, max-len 10)</td>
+</tr>
+<tr>
+<td>orderNote</td>
+<td>A help text to make customers know more about the order (alphanum, max-len 200)</td>
+</tr>
+<tr>
+<td>customerName*</td>
+<td>Name of the customer (alphabets/spaces, max-len 150)</td>
+</tr>
+<tr>
+<td>customerPhone*</td>
+<td>Phone number of customer (numeric, len 8-12)</td>
+</tr>
+<tr>
+<td>customerEmail*</td>
+<td>Email id of the customer (valid email, max-len 200)</td>
+</tr>
+<tr>
+<td>sellerPhone</td>
+<td>Notification phone number, which will get notified when payment for the order succeeds. Use it to accept COD payments</td>
+</tr>
+<tr>
+<td>returnUrl</td>
+<td>Return URL to which user will be redirected after the payment (max-len 500)</td>
+</tr>
+<tr>
+<td>notifyUrl</td>
+<td>Notification URL for server-server communication. Useful when user’s connection drops while re-directing (max-len 500) <b>notifyUrl should be an https U</b></td>
+</tr>
+<tr>
+<td>paymentModes</td>
+<td>Allowed payment modes for this order. Available values: cc, dc, nb, paypal, wallet</td>
+</tr>
+<tr>
+<td>pc</td>
+<td>Partner Code</td>
 </tr>
 </tbody></table>
+
+<aside class="warning">
+Parameters marked with an asterik(*) are mandatory.
+</aside>
+<h3 id='response-parameters'>Response Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status*</td>
+<td>Status of API call. Values are - OK and ERROR</td>
+</tr>
+<tr>
+<td>paymentLink</td>
+<td>link of payment page. Returned when status is OK</td>
+</tr>
+<tr>
+<td>reason</td>
+<td>reason of failure when status is ERROR</td>
+</tr>
+</tbody></table>
+<h2 id='get-link'>Get Link</h2>
+<p>Returns payment link for an existing order. Further, you can send it the customer via email or sms.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>Method: POST</code><br/>
+<code>Content-Type: application/x-www-form-urlencoded</code> <br/>
+<code>Endpoint: /api/v1/order/info/link</code></p>
+<h3 id='post-parameters-2'>POST Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>appId</td>
+<td>Your app id</td>
+</tr>
+<tr>
+<td>secretKey</td>
+<td>Secret Key</td>
+</tr>
+<tr>
+<td>orderId</td>
+<td>Existing order id</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+All fields are mandatory.
+</aside>
+<h3 id='response-parameters-2'>Response Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status*</td>
+<td>Status of API call. Values are - OK and ERROR</td>
+</tr>
+<tr>
+<td>paymentLink</td>
+<td>link of payment page for that order. Returned when status is OK</td>
+</tr>
+<tr>
+<td>reason</td>
+<td>reason of failure when status is ERROR</td>
+</tr>
+</tbody></table>
+<h2 id='get-status'>Get Status</h2>
+<p>Returns payment status of an existing order. This can also be used to query order status at any point of time.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>Method: POST</code><br/>
+<code>Content-Type: application/x-www-form-urlencoded</code> <br/>
+<code>Endpoint: /api/v1/order/info/status</code></p>
+<h3 id='post-parameters-3'>POST Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>appId</td>
+<td>Your app id</td>
+</tr>
+<tr>
+<td>secretKey</td>
+<td>Secret Key</td>
+</tr>
+<tr>
+<td>orderId</td>
+<td>Existing order id</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+All fields are mandatory.
+</aside>
+<h3 id='response-parameters-3'>Response Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status*</td>
+<td>Status of API call. Values are - OK and ERROR</td>
+</tr>
+<tr>
+<td>orderStatus</td>
+<td>Payment status of order. Values are - ACTIVE, PAID, PROCESSED</td>
+</tr>
+<tr>
+<td>reason</td>
+<td>reason of failure when status is ERROR</td>
+</tr>
+<tr>
+<td>txStatus</td>
+<td>transaction status, if a payment has been attempted</td>
+</tr>
+<tr>
+<td>txTime</td>
+<td>transaction time, if payment has been attempted</td>
+</tr>
+<tr>
+<td>txMsg</td>
+<td>transaction message, if payment has been attempted</td>
+</tr>
+<tr>
+<td>referenceId</td>
+<td>transaction reference id, if payment has been attempted</td>
+</tr>
+<tr>
+<td>paymentMode</td>
+<td>payment mode of transaction, if payment has been attempted</td>
+</tr>
+</tbody></table>
+<h2 id='trigger-payment-email'>Trigger Payment Email</h2>
+<p>Sends Email with payment link to the customer’s mailbox.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>Method: POST</code><br/>
+<code>Content-Type: application/x-www-form-urlencoded</code> <br/>
+<code>Endpoint: /api/v1/order/email</code></p>
+<h3 id='post-parameters-4'>POST Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>appId</td>
+<td>Your app id</td>
+</tr>
+<tr>
+<td>secretKey</td>
+<td>Secret Key</td>
+</tr>
+<tr>
+<td>orderId</td>
+<td>Existing order id</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+All fields are mandatory.
+</aside>
+<h2 id='initiate-refund'>Initiate Refund</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+   <span class="nv">$apiEndpoint</span> <span class="o">=</span> <span class="s2">"https://test.gocashfree.com/"</span><span class="p">;</span>
+   <span class="nv">$opUrl</span> <span class="o">=</span> <span class="nv">$apiEndpoint</span><span class="o">.</span><span class="s2">"api/v1/order/refund"</span><span class="p">;</span>
+
+   <span class="nv">$cf_request</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"appId"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"&lt;your_app_id&gt;"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"secretKey"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"&lt;your_secret_key&gt;"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"referenceId"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"&lt;payment_reference_id&gt;"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"refundAmount"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"refundNote"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Sample Note"</span><span class="p">;</span>
+
+   <span class="nv">$timeout</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+   <span class="nv">$request_string</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+   <span class="k">foreach</span><span class="p">(</span><span class="nv">$cf_request</span> <span class="k">as</span> <span class="nv">$key</span><span class="o">=&gt;</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nv">$request_string</span> <span class="o">.=</span> <span class="nv">$key</span><span class="o">.</span><span class="s1">'='</span><span class="o">.</span><span class="nb">rawurlencode</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span><span class="o">.</span><span class="s1">'&amp;'</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+     <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span><span class="s2">"</span><span class="nv">$opUrl</span><span class="s2">?"</span><span class="p">);</span>
+     <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span><span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$cf_request</span><span class="p">));</span>
+     <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span><span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nv">$request_string</span><span class="p">);</span>
+     <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+     <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_TIMEOUT</span><span class="p">,</span> <span class="nv">$timeout</span><span class="p">);</span>
+     <span class="nv">$curl_result</span><span class="o">=</span><span class="nb">curl_exec</span> <span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+   <span class="nb">curl_close</span> <span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+   <span class="nv">$jsonResponse</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$curl_result</span><span class="p">);</span>
+   <span class="k">if</span> <span class="p">(</span><span class="nv">$jsonResponse</span><span class="o">-&gt;</span><span class="p">{</span><span class="s1">'status'</span><span class="p">}</span> <span class="o">==</span> <span class="s2">"OK"</span><span class="p">)</span> <span class="p">{</span>
+     <span class="k">echo</span> <span class="s2">"Refund has been initiated"</span><span class="p">;</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">//Log request, $jsonResponse-&gt;{"message"}
+</span>   <span class="p">}</span>
+<span class="cp">?&gt;</span>
+
+
+</code></pre>
+<p>Can do partial/full refund of the payment made for the order</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>Method: POST</code><br/>
+<code>Content-Type: application/x-www-form-urlencoded</code> <br/>
+<code>Endpoint: /api/v1/order/refund</code></p>
+<h3 id='post-parameters-5'>POST Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>appId*</td>
+<td>Your app id</td>
+</tr>
+<tr>
+<td>secretKey*</td>
+<td>Secret Key</td>
+</tr>
+<tr>
+<td>referenceId*</td>
+<td>CashFree reference Id</td>
+</tr>
+<tr>
+<td>refundAmount*</td>
+<td>Amount to be refunded. Should be lesser than equal to transaction amount</td>
+</tr>
+<tr>
+<td>refundNote</td>
+<td>A refund note for your reference</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+All fields are mandatory.
+</aside>
+<h3 id='response-parameters-4'>Response Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status*</td>
+<td>Status of API call. Values are - OK and ERROR</td>
+</tr>
+<tr>
+<td>message*</td>
+<td>Response message</td>
+</tr>
+</tbody></table>
+<h2 id='fetch-transactions'>Fetch Transactions</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+   <span class="nv">$apiEndpoint</span> <span class="o">=</span> <span class="s2">"https://test.gocashfree.com/"</span><span class="p">;</span>
+   <span class="nv">$opUrl</span> <span class="o">=</span> <span class="nv">$apiEndpoint</span><span class="o">.</span><span class="s2">"api/v1/transactions"</span><span class="p">;</span>
+
+   <span class="nv">$cf_request</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"appId"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"&lt;your_app_id&gt;"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"secretKey"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"&lt;your_secret_key&gt;"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"startDate"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"2016-09-12"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"endDate"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"2016-09-14"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"count"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+   <span class="nv">$timeout</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+   <span class="nv">$request_string</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+   <span class="k">foreach</span><span class="p">(</span><span class="nv">$cf_request</span> <span class="k">as</span> <span class="nv">$key</span><span class="o">=&gt;</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nv">$request_string</span> <span class="o">.=</span> <span class="nv">$key</span><span class="o">.</span><span class="s1">'='</span><span class="o">.</span><span class="nb">rawurlencode</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span><span class="o">.</span><span class="s1">'&amp;'</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span><span class="s2">"</span><span class="nv">$opUrl</span><span class="s2">?"</span><span class="p">);</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span><span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$cf_request</span><span class="p">));</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span><span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nv">$request_string</span><span class="p">);</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_TIMEOUT</span><span class="p">,</span> <span class="nv">$timeout</span><span class="p">);</span>
+   <span class="nv">$curl_result</span><span class="o">=</span><span class="nb">curl_exec</span> <span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+   <span class="nb">curl_close</span> <span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+   <span class="nv">$response</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$curl_result</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+   <span class="k">if</span> <span class="p">(</span><span class="nv">$response</span><span class="p">[</span><span class="s2">"status"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"OK"</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nv">$transactions</span> <span class="o">=</span> <span class="nv">$response</span><span class="p">[</span><span class="s2">"transactions"</span><span class="p">];</span>
+     <span class="k">foreach</span> <span class="p">(</span><span class="nv">$transactions</span> <span class="k">as</span> <span class="nv">$transaction</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//Fetch transaction fields
+</span>     <span class="p">}</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">//Request failed;
+</span>   <span class="p">}</span>
+<span class="cp">?&gt;</span>
+
+
+</code></pre>
+<p>Fetch transactions processed on your CashFree Account</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>Method: POST</code><br/>
+<code>Content-Type: application/x-www-form-urlencoded</code> <br/>
+<code>Endpoint: /api/v1/transactions</code></p>
+<h3 id='post-parameters-6'>POST Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>appId*</td>
+<td>Your app id</td>
+</tr>
+<tr>
+<td>secretKey*</td>
+<td>Secret Key</td>
+</tr>
+<tr>
+<td>startDate*</td>
+<td>Date(in the format of YYYY-MM-DD), from which you want the data</td>
+</tr>
+<tr>
+<td>endDate*</td>
+<td>Date till you want the data (this date is included)</td>
+</tr>
+<tr>
+<td>txStatus</td>
+<td>Filter the transactions as per the status. Valid status values are SUCCESS, FAILED, PENDING, FLAGGED and CANCELLED</td>
+</tr>
+<tr>
+<td>lastId</td>
+<td>Use it for paginated response. Transactions having id greater than this value will be returned</td>
+</tr>
+<tr>
+<td>count</td>
+<td>Number of transactions you want to receive. Default is 20 and max is 50.</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Pagination: To retrieve results beyond the default count value, make a fresh request with the <strong>lastId</strong> parameter.
+</aside>
+<h3 id='response-parameters-5'>Response Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>API call status (OK means successful, ERROR means otherwise)</td>
+</tr>
+<tr>
+<td>settlements</td>
+<td>List of transaction</td>
+</tr>
+<tr>
+<td>message</td>
+<td>response message (will have the reason when status is sent as ERROR)</td>
+</tr>
+<tr>
+<td>lastId</td>
+<td>ID of the last transaction returned. Use it in your next request if current one didn&#39;t return all the transactions</td>
+</tr>
+</tbody></table>
+<h3 id='fields-part-of-a-transaction-array'>Fields part of a transaction array</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>id of the entry</td>
+</tr>
+<tr>
+<td>orderId</td>
+<td>merchant order id that is passed during payment request</td>
+</tr>
+<tr>
+<td>orderAmount</td>
+<td>Order Amount</td>
+</tr>
+<tr>
+<td>orderNote</td>
+<td>Order Note</td>
+</tr>
+<tr>
+<td>customerName</td>
+<td>Customer Name</td>
+</tr>
+<tr>
+<td>customerPhone</td>
+<td>Customer Phone</td>
+</tr>
+<tr>
+<td>customerEmail</td>
+<td>Customer Email</td>
+</tr>
+<tr>
+<td>referenceId</td>
+<td>Transaction Reference Id</td>
+</tr>
+<tr>
+<td>txAmount</td>
+<td>Transaction Amount</td>
+</tr>
+<tr>
+<td>txStatus</td>
+<td>Transaction Status</td>
+</tr>
+<tr>
+<td>txTime</td>
+<td>Transaction Time</td>
+</tr>
+<tr>
+<td>settlementStatus</td>
+<td>Settlement Status</td>
+</tr>
+<tr>
+<td>refundStatus</td>
+<td>Refund Status</td>
+</tr>
+</tbody></table>
+<h2 id='fetch-refunds'>Fetch Refunds</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+   <span class="nv">$apiEndpoint</span> <span class="o">=</span> <span class="s2">"https://test.gocashfree.com/"</span><span class="p">;</span>
+   <span class="nv">$opUrl</span> <span class="o">=</span> <span class="nv">$apiEndpoint</span><span class="o">.</span><span class="s2">"api/v1/refunds"</span><span class="p">;</span>
+
+   <span class="nv">$cf_request</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"appId"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"&lt;your_app_id&gt;"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"secretKey"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"&lt;your_secret_key&gt;"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"startDate"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"2016-09-12"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"endDate"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"2016-09-14"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"count"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+   <span class="nv">$timeout</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+   <span class="nv">$request_string</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+   <span class="k">foreach</span><span class="p">(</span><span class="nv">$cf_request</span> <span class="k">as</span> <span class="nv">$key</span><span class="o">=&gt;</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nv">$request_string</span> <span class="o">.=</span> <span class="nv">$key</span><span class="o">.</span><span class="s1">'='</span><span class="o">.</span><span class="nb">rawurlencode</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span><span class="o">.</span><span class="s1">'&amp;'</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span><span class="s2">"</span><span class="nv">$opUrl</span><span class="s2">?"</span><span class="p">);</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span><span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$cf_request</span><span class="p">));</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span><span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nv">$request_string</span><span class="p">);</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_TIMEOUT</span><span class="p">,</span> <span class="nv">$timeout</span><span class="p">);</span>
+   <span class="nv">$curl_result</span><span class="o">=</span><span class="nb">curl_exec</span> <span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+   <span class="nb">curl_close</span> <span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+   <span class="nv">$response</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$curl_result</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+   <span class="k">if</span> <span class="p">(</span><span class="nv">$response</span><span class="p">[</span><span class="s2">"status"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"OK"</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nv">$refunds</span> <span class="o">=</span> <span class="nv">$response</span><span class="p">[</span><span class="s2">"refunds"</span><span class="p">];</span>
+     <span class="k">foreach</span> <span class="p">(</span><span class="nv">$refunds</span> <span class="k">as</span> <span class="nv">$refund</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//Fetch refund fields
+</span>     <span class="p">}</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">//Request failed;
+</span>   <span class="p">}</span>
+<span class="cp">?&gt;</span>
+
+
+</code></pre>
+<p>Fetch refunds processed on your CashFree Account</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>Method: POST</code><br/>
+<code>Content-Type: application/x-www-form-urlencoded</code> <br/>
+<code>Endpoint: /api/v1/refunds</code></p>
+<h3 id='post-parameters-7'>POST Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>appId*</td>
+<td>Your app id</td>
+</tr>
+<tr>
+<td>secretKey*</td>
+<td>Secret Key</td>
+</tr>
+<tr>
+<td>startDate*</td>
+<td>Date(in the format of YYYY-MM-DD), from which you want the data</td>
+</tr>
+<tr>
+<td>endDate*</td>
+<td>Date till you want the data (this date is included)</td>
+</tr>
+<tr>
+<td>lastId</td>
+<td>Use it for paginated response. Refunds having id greater than this value will be returned</td>
+</tr>
+<tr>
+<td>count</td>
+<td>Number of refunds you want to receive. Default is 20 and max is 50.</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Pagination: To retrieve results beyond the default count value, make a fresh request with the <strong>lastId</strong> parameter.
+</aside>
+<h3 id='response-parameters-6'>Response Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>API call status (OK means successful, ERROR means otherwise)</td>
+</tr>
+<tr>
+<td>refunds</td>
+<td>List of refunds</td>
+</tr>
+<tr>
+<td>message</td>
+<td>response message (will have the reason when status is sent as ERROR)</td>
+</tr>
+<tr>
+<td>lastId</td>
+<td>ID of the last refund returned. Use it in your next request if current one didn&#39;t return all the refunds</td>
+</tr>
+</tbody></table>
+<h3 id='fields-part-of-a-refund-array'>Fields part of a refund array</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>refundId</td>
+<td>Id of the refund</td>
+</tr>
+<tr>
+<td>orderId</td>
+<td>merchant order id that is passed during payment request</td>
+</tr>
+<tr>
+<td>referenceId</td>
+<td>Cashfree reference id of the transaction</td>
+</tr>
+<tr>
+<td>txAmount</td>
+<td>Transaction Amount</td>
+</tr>
+<tr>
+<td>refundAmount</td>
+<td>Amount supposed to be refunded</td>
+</tr>
+<tr>
+<td>refundNote</td>
+<td>Note provided during refund initiation</td>
+</tr>
+<tr>
+<td>processed</td>
+<td>Refund processing status (Values will be YES or NO)</td>
+</tr>
+<tr>
+<td>initiatedOn</td>
+<td>DateTime of refund initiation</td>
+</tr>
+<tr>
+<td>processedOn</td>
+<td>DateTime of refund processing (Will be blank for unprocessed ones)</td>
+</tr>
+</tbody></table>
+<h2 id='fetch-settlements'>Fetch Settlements</h2><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+   <span class="nv">$apiEndpoint</span> <span class="o">=</span> <span class="s2">"https://test.gocashfree.com/"</span><span class="p">;</span>
+   <span class="nv">$opUrl</span> <span class="o">=</span> <span class="nv">$apiEndpoint</span><span class="o">.</span><span class="s2">"api/v1/settlements"</span><span class="p">;</span>
+
+   <span class="nv">$cf_request</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"appId"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"&lt;your_app_id&gt;"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"secretKey"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"&lt;your_secret_key&gt;"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"startDate"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"2016-09-12"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"endDate"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"2016-09-14"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"count"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+   <span class="nv">$timeout</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+   <span class="nv">$request_string</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+   <span class="k">foreach</span><span class="p">(</span><span class="nv">$cf_request</span> <span class="k">as</span> <span class="nv">$key</span><span class="o">=&gt;</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nv">$request_string</span> <span class="o">.=</span> <span class="nv">$key</span><span class="o">.</span><span class="s1">'='</span><span class="o">.</span><span class="nb">rawurlencode</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span><span class="o">.</span><span class="s1">'&amp;'</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span><span class="s2">"</span><span class="nv">$opUrl</span><span class="s2">?"</span><span class="p">);</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span><span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$cf_request</span><span class="p">));</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span><span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nv">$request_string</span><span class="p">);</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_TIMEOUT</span><span class="p">,</span> <span class="nv">$timeout</span><span class="p">);</span>
+   <span class="nv">$curl_result</span><span class="o">=</span><span class="nb">curl_exec</span> <span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+   <span class="nb">curl_close</span> <span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+   <span class="nv">$response</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$curl_result</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+   <span class="k">if</span> <span class="p">(</span><span class="nv">$response</span><span class="p">[</span><span class="s2">"status"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"OK"</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nv">$settlements</span> <span class="o">=</span> <span class="nv">$response</span><span class="p">[</span><span class="s2">"settlements"</span><span class="p">];</span>
+     <span class="k">foreach</span> <span class="p">(</span><span class="nv">$settlements</span> <span class="k">as</span> <span class="nv">$settlement</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//Fetch settlement fields
+</span>     <span class="p">}</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">//Request failed;
+</span>   <span class="p">}</span>
+<span class="cp">?&gt;</span>
+
+
+</code></pre>
+<p>Fetch settlements processed on your CashFree Account</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>Method: POST</code><br/>
+<code>Content-Type: application/x-www-form-urlencoded</code> <br/>
+<code>Endpoint: /api/v1/settlements</code></p>
+<h3 id='post-parameters-8'>POST Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>appId*</td>
+<td>Your app id</td>
+</tr>
+<tr>
+<td>secretKey*</td>
+<td>Secret Key</td>
+</tr>
+<tr>
+<td>startDate*</td>
+<td>Date(in the format of YYYY-MM-DD), from which you want the data</td>
+</tr>
+<tr>
+<td>endDate*</td>
+<td>Date till you want the data (this date is included)</td>
+</tr>
+<tr>
+<td>lastId</td>
+<td>Use it for paginated response. Settlements having id greater than this value will be returned</td>
+</tr>
+<tr>
+<td>count</td>
+<td>Number of settlements you want to receive. Default is 20 and max is 50.</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Pagination: To retrieve results beyond the default count value, make a fresh request with the <strong>lastId</strong> parameter.
+</aside>
+<h3 id='response-parameters-7'>Response Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>API call status (OK means successful, ERROR means otherwise)</td>
+</tr>
+<tr>
+<td>settlements</td>
+<td>List of settlements</td>
+</tr>
+<tr>
+<td>message</td>
+<td>response message (will have the reason when status is sent as ERROR)</td>
+</tr>
+<tr>
+<td>lastId</td>
+<td>ID of the last settlement returned. Use it in your next request if current one didn&#39;t return all the settlements</td>
+</tr>
+</tbody></table>
+<h3 id='fields-part-of-a-settlement-array'>Fields part of a settlement array</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Settlement Id (use it to fetch transactions that are part of this settlement)</td>
+</tr>
+<tr>
+<td>totalTxAmount</td>
+<td>Total transactions amount</td>
+</tr>
+<tr>
+<td>settlementAmount</td>
+<td>Amount after deducting the TDR</td>
+</tr>
+<tr>
+<td>adjustment</td>
+<td>Any adjustments (because of refunds OR disputes).</td>
+</tr>
+<tr>
+<td>amountSettled</td>
+<td>Amount settled after including the adjustments</td>
+</tr>
+<tr>
+<td>transactionFrom</td>
+<td>transaction included from this day</td>
+</tr>
+<tr>
+<td>transactionTill</td>
+<td>transactions included till this day</td>
+</tr>
+<tr>
+<td>utr</td>
+<td>Bank Reference number</td>
+</tr>
+<tr>
+<td>settledOn</td>
+<td>Time of settlement (this could be different than credit date shown on the account statement)</td>
+</tr>
+</tbody></table>
+<h3 id='fetch-transactions-that-are-part-of-a-settlement'>Fetch transactions that are part of a settlement</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+   <span class="nv">$apiEndpoint</span> <span class="o">=</span> <span class="s2">"https://test.gocashfree.com/"</span><span class="p">;</span>
+   <span class="nv">$opUrl</span> <span class="o">=</span> <span class="nv">$apiEndpoint</span><span class="o">.</span><span class="s2">"api/v1/settlement"</span><span class="p">;</span>
+
+   <span class="nv">$cf_request</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"appId"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"&lt;your_app_id&gt;"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"secretKey"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"&lt;your_secret_key&gt;"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"settlementId"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"&lt;settlement_id&gt;"</span><span class="p">;</span>
+   <span class="nv">$cf_request</span><span class="p">[</span><span class="s2">"count"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+   <span class="nv">$timeout</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+   <span class="nv">$request_string</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+   <span class="k">foreach</span><span class="p">(</span><span class="nv">$cf_request</span> <span class="k">as</span> <span class="nv">$key</span><span class="o">=&gt;</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nv">$request_string</span> <span class="o">.=</span> <span class="nv">$key</span><span class="o">.</span><span class="s1">'='</span><span class="o">.</span><span class="nb">rawurlencode</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span><span class="o">.</span><span class="s1">'&amp;'</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span><span class="s2">"</span><span class="nv">$opUrl</span><span class="s2">?"</span><span class="p">);</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span><span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$cf_request</span><span class="p">));</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span><span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nv">$request_string</span><span class="p">);</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+   <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_TIMEOUT</span><span class="p">,</span> <span class="nv">$timeout</span><span class="p">);</span>
+   <span class="nv">$curl_result</span><span class="o">=</span><span class="nb">curl_exec</span> <span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+   <span class="nb">curl_close</span> <span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+
+   <span class="nv">$response</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$curl_result</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+   <span class="k">if</span> <span class="p">(</span><span class="nv">$response</span><span class="p">[</span><span class="s2">"status"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"OK"</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nv">$transactions</span> <span class="o">=</span> <span class="nv">$response</span><span class="p">[</span><span class="s2">"transactions"</span><span class="p">];</span>
+     <span class="k">foreach</span> <span class="p">(</span><span class="nv">$transactions</span> <span class="k">as</span> <span class="nv">$transaction</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//Fetch transaction fields
+</span>     <span class="p">}</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">//Request failed;
+</span>   <span class="p">}</span>
+<span class="cp">?&gt;</span>
+
+
+</code></pre><h3 id='http-request-9'>HTTP Request</h3>
+<p><code>Method: POST</code><br/>
+<code>Content-Type: application/x-www-form-urlencoded</code> <br/>
+<code>Endpoint: /api/v1/settlement</code></p>
+<h3 id='post-parameters-9'>POST Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>appId*</td>
+<td>Your app id</td>
+</tr>
+<tr>
+<td>secretKey*</td>
+<td>Secret Key</td>
+</tr>
+<tr>
+<td>settlementId</td>
+<td>ID of the settlement</td>
+</tr>
+<tr>
+<td>lastId</td>
+<td>Use it for paginated response. Transactions having id greater than this value will be returned</td>
+</tr>
+<tr>
+<td>count</td>
+<td>Number of transactions you want to receive. Default is 20 and max is 50.</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Pagination: To retrieve results beyond the default count value, make a fresh request with the <strong>lastId</strong> parameter.
+</aside>
+<h3 id='response-parameters-8'>Response Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>API call status (OK means successful, ERROR means otherwise)</td>
+</tr>
+<tr>
+<td>transactions</td>
+<td>List of transactions</td>
+</tr>
+<tr>
+<td>message</td>
+<td>response message (will have the reason when status is sent as ERROR)</td>
+</tr>
+<tr>
+<td>lastId</td>
+<td>ID of the last transaction returned. Use it in your next request if current one didn&#39;t return all the transactions</td>
+</tr>
+</tbody></table>
+<h3 id='fields-part-of-a-transaction-array-2'>Fields part of a transaction array</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>id of the entry</td>
+</tr>
+<tr>
+<td>orderId</td>
+<td>merchant order id that is passed during payment request</td>
+</tr>
+<tr>
+<td>referenceId</td>
+<td>Cashfree reference id of the transaction</td>
+</tr>
+<tr>
+<td>txAmount</td>
+<td>Transaction Amount</td>
+</tr>
+<tr>
+<td>paymentMode</td>
+<td>Payment Mode</td>
+</tr>
+<tr>
+<td>bankName</td>
+<td>Issuer Bank (currently supported for NetBanking payment mode)</td>
+</tr>
+<tr>
+<td>serviceCharge</td>
+<td>service charge computed</td>
+</tr>
+<tr>
+<td>serviceTax</td>
+<td>service tax computed on service charge</td>
+</tr>
+<tr>
+<td>settlementAmount</td>
+<td>Amount after reducing servie charge and service tax from transaction amount</td>
+</tr>
+<tr>
+<td>txTime</td>
+<td>Transaction Time</td>
+</tr>
+</tbody></table>
+<h1 id='payment-gateway-integration'>Payment Gateway Integration</h1><h2 id='checkout-form'>Checkout Form</h2>
+<blockquote>
+<p>Sample checkout form</p>
+</blockquote>
+<pre class="highlight html tab-html"><code>  <span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">"redirectForm"</span> <span class="na">method=</span><span class="s">"post"</span> <span class="na">action=</span><span class="s">“&lt;action_url”</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"appId"</span> <span class="na">value=</span><span class="s">“YOUR_APP_ID”/</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"orderId"</span> <span class="na">value=</span><span class="s">“ORDERID”/</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"orderAmount"</span> <span class="na">value=</span><span class="s">“ORDERAMOUNT”/</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"orderNote"</span> <span class="na">value=</span><span class="s">“ORDERNOTE”/</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"customerName"</span> <span class="na">value=</span><span class="s">“CUSTOMER_NAME”/</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"customerEmail"</span> <span class="na">value=</span><span class="s">“CUSTOMER_EMAIL”/</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">“customerPhone"</span> <span class="na">value=</span><span class="s">“CUSTOMER_PHONE”/</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"returnUrl"</span> <span class="na">value=</span><span class="s">“RETURN_URL”/</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"notifyUrl"</span> <span class="na">value=</span><span class="s">“NOTIFY_URL”/</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"signature"</span> <span class="na">value=</span><span class="s">“GENERATED_SIGNATURE”/</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/form&gt;</span>
+</code></pre>
+<blockquote>
+<p>You can also use below javascript snippet to submit the form automatically on page load without waiting for user&#39;s click.</p>
+</blockquote>
+<pre class="highlight html tab-html"><code>  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"redirectForm"</span><span class="p">).</span><span class="nx">submit</span><span class="p">();</span>
+  <span class="nt">&lt;/script&gt;</span>
+</code></pre>
+<blockquote>
+<p>Code sample to generate signature</p>
+</blockquote>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+  <span class="nv">$postData</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s2">"appId"</span> <span class="o">=&gt;</span> <span class="nv">$appId</span><span class="p">,</span>
+                     <span class="s2">"orderId"</span> <span class="o">=</span> <span class="o">&gt;</span> <span class="nv">$ORDERID</span><span class="p">,</span>
+                     <span class="s2">"orderAmount"</span> <span class="o">=&gt;</span> <span class="nv">$ORDERAMOUNT</span><span class="p">,</span>
+                     <span class="s2">"orderNote"</span> <span class="o">=&gt;</span> <span class="nv">$ORDERNOTE</span><span class="p">,</span>
+                     <span class="s2">"customerName"</span> <span class="o">=&gt;</span> <span class="nv">$customerName</span><span class="p">,</span>
+                     <span class="s2">"customerPhone"</span> <span class="o">=&gt;</span> <span class="nv">$customerPhone</span><span class="p">,</span>
+                     <span class="s2">"customerEmail"</span> <span class="o">=&gt;</span> <span class="nv">$customerEmail</span><span class="p">,</span>
+                     <span class="s2">"returnUrl"</span> <span class="o">=&gt;</span> <span class="nv">$returnUrl</span><span class="p">,</span>
+                     <span class="s2">"notifyUrl"</span> <span class="o">=&gt;</span> <span class="nv">$notifyUrl</span><span class="p">,</span>
+<span class="p">);</span>
+ <span class="c1">// get secret key from your config
+</span> <span class="nb">ksort</span><span class="p">(</span><span class="nv">$postData</span><span class="p">);</span>
+ <span class="nv">$signatureData</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+ <span class="k">foreach</span> <span class="p">(</span><span class="nv">$postData</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">){</span>
+      <span class="nv">$signatureData</span> <span class="o">.=</span> <span class="nv">$key</span><span class="o">.</span><span class="nv">$value</span><span class="p">;</span>
+ <span class="p">}</span>
+ <span class="nv">$signature</span> <span class="o">=</span> <span class="nb">hash_hmac</span><span class="p">(</span><span class="s1">'sha256'</span><span class="p">,</span> <span class="nv">$signatureData</span><span class="p">,</span> <span class="nv">$secretKey</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+ <span class="nv">$signature</span> <span class="o">=</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$signature</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">hmac</span>
+<span class="kn">import</span> <span class="nn">base64</span>
+
+<span class="n">postData</span> <span class="o">=</span> <span class="p">{</span><span class="s">"appId"</span> <span class="p">:</span> <span class="n">appId</span><span class="p">,</span> <span class="s">"orderId"</span> <span class="p">:</span> <span class="n">orderId</span><span class="p">,</span> <span class="s">"orderAmount"</span> <span class="p">:</span> <span class="n">orderAmount</span><span class="p">,</span> <span class="s">"orderNote"</span> <span class="p">:</span> <span class="n">orderNote</span><span class="p">,</span> <span class="s">"customerName"</span> <span class="p">:</span> <span class="n">customerName</span><span class="p">,</span> <span class="s">"customerPhone"</span> <span class="p">:</span> <span class="n">customerPhone</span><span class="p">,</span> <span class="s">"customerEmail"</span> <span class="p">:</span> <span class="n">customerEmail</span><span class="p">,</span> <span class="s">"returnUrl"</span> <span class="p">:</span> <span class="n">returnUrl</span><span class="p">,</span> <span class="s">"notifyUrl"</span> <span class="p">:</span> <span class="n">notifyUrl</span><span class="p">};</span>
+
+<span class="n">sortedKeys</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">postData</span><span class="p">);</span>
+<span class="n">signatureData</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">sortedKeys</span><span class="p">:</span>
+  <span class="n">signatureData</span> <span class="o">+=</span> <span class="n">key</span><span class="o">+</span><span class="n">postData</span><span class="p">[</span><span class="n">key</span><span class="p">];</span>
+
+<span class="n">message</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">signatureData</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+<span class="c">#get secret key from your config</span>
+<span class="n">secret</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">secretKey</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+<span class="n">signature</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span><span class="n">digestmod</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code></code></pre><pre class="highlight java tab-java"><code>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">postData</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;();</span>
+<span class="n">postData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"appId"</span><span class="o">,</span> <span class="n">appId</span><span class="o">);</span>
+<span class="n">postData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"orderId"</span><span class="o">,</span> <span class="n">ORDERID</span><span class="o">);</span>
+<span class="n">postData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"orderAmount"</span><span class="o">,</span> <span class="n">ORDERAMOUNT</span><span class="o">);</span>
+<span class="n">postData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"orderNote"</span><span class="o">,</span> <span class="n">ORDERNOTE</span><span class="o">);</span>
+<span class="n">postData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"customerName"</span><span class="o">,</span> <span class="n">CUSTOMER_NAME</span><span class="o">);</span>
+<span class="n">postData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"customerEmail"</span><span class="o">,</span> <span class="n">CUSTOMER_EMAIL</span><span class="o">);</span>
+<span class="n">postData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"customerPhone"</span><span class="o">,</span> <span class="n">CUSTOMER_PHONE</span><span class="o">);</span>
+<span class="n">postData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"returnUrl"</span><span class="o">,</span><span class="n">RETURN_URL</span><span class="o">);</span>
+<span class="n">postData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"notifyUrl"</span><span class="o">,</span> <span class="n">NOTIFY_URL</span><span class="o">);</span>
+<span class="err">￼￼</span>
+<span class="n">String</span> <span class="n">data</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+<span class="n">SortedSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">keys</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;(</span><span class="n">postData</span><span class="o">.</span><span class="na">keySet</span><span class="o">());</span>
+<span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">key</span> <span class="o">:</span> <span class="n">keys</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="n">postData</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="n">Mac</span> <span class="n">sha256_HMAC</span> <span class="o">=</span> <span class="n">Mac</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="s">"HmacSHA256"</span><span class="o">);</span>
+<span class="n">SecretKeySpec</span> <span class="n">secret_key_spec</span> <span class="o">=</span> <span class="k">new</span>
+<span class="n">SecretKeySpec</span><span class="o">(</span><span class="n">secretKey</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(),</span><span class="s">"HmacSHA256"</span><span class="o">);</span>
+<span class="n">sha256_HMAC</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="n">secret_key_spec</span><span class="o">);</span>
+<span class="n">String</span> <span class="n">signature</span> <span class="o">=</span> <span class="n">Base64</span><span class="o">.</span><span class="na">getEncoder</span><span class="o">().</span><span class="na">encodeToString</span><span class="o">(</span><span class="n">sha256_HMAC</span><span class="o">.</span><span class="na">doFinal</span><span class="o">(</span><span class="n">data</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code>
+<span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Security.Cryptography</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">Rextester</span> <span class="p">{</span>
+  <span class="k">public</span> <span class="k">class</span> <span class="nc">Program</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="kt">string</span> <span class="nf">CreateToken</span><span class="p">(</span><span class="kt">string</span> <span class="n">message</span><span class="p">,</span> <span class="kt">string</span> <span class="n">secret</span><span class="p">){</span>
+      <span class="n">secret</span> <span class="p">=</span> <span class="n">secret</span> <span class="p">??</span> <span class="s">""</span><span class="p">;</span>
+      <span class="kt">var</span> <span class="n">encoding</span> <span class="p">=</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="nf">ASCIIEncoding</span><span class="p">();</span>
+      <span class="kt">byte</span><span class="p">[]</span> <span class="n">keyByte</span> <span class="p">=</span> <span class="n">encoding</span><span class="p">.</span><span class="nf">GetBytes</span><span class="p">(</span><span class="n">secret</span><span class="p">);</span>
+      <span class="kt">byte</span><span class="p">[]</span> <span class="n">messageBytes</span> <span class="p">=</span> <span class="n">encoding</span><span class="p">.</span><span class="nf">GetBytes</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+      <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">hmacsha256</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">HMACSHA256</span><span class="p">(</span><span class="n">keyByte</span><span class="p">))</span>
+      <span class="p">{</span>
+        <span class="kt">byte</span><span class="p">[]</span> <span class="n">hashmessage</span> <span class="p">=</span> <span class="n">hmacsha256</span><span class="p">.</span><span class="nf">ComputeHash</span><span class="p">(</span><span class="n">messageBytes</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">Convert</span><span class="p">.</span><span class="nf">ToBase64String</span><span class="p">(</span><span class="n">hashmessage</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+
+      <span class="kt">string</span> <span class="n">secret</span> <span class="p">=</span> <span class="s">"&lt;your_secret_key&gt;"</span><span class="p">;</span>
+      <span class="kt">string</span> <span class="n">data</span> <span class="p">=</span> <span class="s">""</span><span class="p">;</span>  
+
+      <span class="n">SortedDictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">formParams</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SortedDictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;();</span>
+      <span class="n">formParams</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"appId"</span><span class="p">,</span> <span class="s">"&lt;your_app_id&gt;"</span><span class="p">);</span>
+      <span class="n">formParams</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"orderId"</span><span class="p">,</span> <span class="s">"FEX101"</span><span class="p">);</span>
+      <span class="n">formParams</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"orderAmount"</span><span class="p">,</span> <span class="s">"10.00"</span><span class="p">);</span>
+      <span class="n">formParams</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"orderNote"</span><span class="p">,</span> <span class="s">"Test payment"</span><span class="p">);</span>
+      <span class="n">formParams</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"customerName"</span><span class="p">,</span> <span class="s">"Customer Name"</span><span class="p">);</span>
+      <span class="n">formParams</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"customerPhone"</span><span class="p">,</span> <span class="s">"9900000085"</span><span class="p">);</span>
+      <span class="n">formParams</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"customerEmail"</span><span class="p">,</span> <span class="s">"test@gocashfree.com"</span><span class="p">);</span>
+      <span class="n">formParams</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"returnUrl"</span><span class="p">,</span> <span class="s">"http://example.com"</span><span class="p">);</span>
+      <span class="n">formParams</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"notifyUrl"</span><span class="p">,</span> <span class="s">"http://example.com"</span><span class="p">);</span>
+
+     <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">kvp</span> <span class="k">in</span> <span class="n">formParams</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">data</span> <span class="p">=</span> <span class="n">data</span> <span class="p">+</span> <span class="n">kvp</span><span class="p">.</span><span class="n">Key</span> <span class="p">+</span> <span class="n">kvp</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+     <span class="p">}</span>
+
+      <span class="n">Program</span> <span class="n">n</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Program</span><span class="p">();</span>
+      <span class="kt">string</span> <span class="n">signature</span> <span class="p">=</span> <span class="n">n</span><span class="p">.</span><span class="nf">CreateToken</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">secret</span><span class="p">);</span>
+      <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">signature</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre><pre class="highlight javascript tab-javascript"><code>
+</code></pre>
+<p>In this method, you will prepare the checkout form with order and customer details and redirect the user to cashfree payment page to let customer provide card/bank details. Below are the list of parameters supported for this form. A sample form is displayed on the right side. </p>
+<h3 id='post-parameters-10'>POST Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>appId*</td>
+<td>Your Cashfree App Id</td>
+</tr>
+<tr>
+<td>orderId*</td>
+<td>Order Id</td>
+</tr>
+<tr>
+<td>orderAmount*</td>
+<td>Bill amount of the order</td>
+</tr>
+<tr>
+<td>orderNote</td>
+<td>A help text to make customers know more about the order</td>
+</tr>
+<tr>
+<td>customerName*</td>
+<td>Name of the customer</td>
+</tr>
+<tr>
+<td>customerPhone*</td>
+<td>Phone number of customer</td>
+</tr>
+<tr>
+<td>customerEmail*</td>
+<td>Email id of the customer</td>
+</tr>
+<tr>
+<td>returnUrl*</td>
+<td>Return URL to which user will be redirected after the payment</td>
+</tr>
+<tr>
+<td>notifyUrl</td>
+<td>Notification URL for server-server communication. Useful when user’s connection drops while re-directing. <b>notifyUrl should be an https URL</b></td>
+</tr>
+<tr>
+<td>paymentModes</td>
+<td>Allowed payment modes for this order. Available values: cc, dc, nb, paypal, wallet</td>
+</tr>
+<tr>
+<td>pc</td>
+<td>Partner Code</td>
+</tr>
+<tr>
+<td>signature*</td>
+<td>request signature</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Signature is mandatory. Payments requests will be rejected if we receive a invalid signature. 
+</aside>
+
+<p><i>Signature is generated by computing HMAC hash of concatenated key-value pairs. Please find language specific signature generation code in the example section.</i>
+<br/>
+<i>TEST action_url: https://test.gocashfree.com/billpay/checkout/post/submit</i><br/>
+<i>PROD action_url: https://www.gocashfree.com/checkout/post/submit</i></p>
+<h2 id='merchant-hosted'>Merchant Hosted</h2>
+<p>This integration mode allows customers to provide their card/bank details on merchant&#39;s website itself. Unlike checkout form/API based integration, users need not navigate away from your website. However, for mobile views, standard redirect flow will be adopted.</p>
+
+<p>Customer card details are accepted inside a cashfree-managed iframe. You do not have to work on securing the details yourself. You can use this mode without worrying about PCI compliances. We take care of it on your behalf.</p>
+
+<p><b>Steps</b>
+<ul>
+<li> Include cashfree&#39;s javascript sdk at your page </li> 
+<li> Initialize Cashfree object with your configuration </li>
+<li> Trigger payment </li>
+<li> Customer enters card/bank details and completes the transaction </li>
+<li> Customer will be re-directed to merchant&#39;s success page on successful transaction </li>
+<li> They will be asked to retry on failures. </li>
+</ul></p>
+
+<blockquote>
+<p>Inline mode</p>
+</blockquote>
+<pre class="highlight coffeescript tab-coffeescript"><code><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s">"payment-div"</span><span class="o">&gt;&lt;/</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="c1"># Paste below code base before the closing tag(&lt;/body&gt;) of body element</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s">"https://www.gocashfree.com/assets/cashfree.sdk.v1.js"</span> <span class="nx">type</span><span class="o">=</span><span class="s">"text/javascript"</span><span class="o">&gt;&lt;/</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s">"text/javascript"</span><span class="o">&gt;</span>
+<span class="p">(</span><span class="nx">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="nx">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="nx">data</span><span class="p">.</span><span class="na">orderId</span> <span class="o">=</span> <span class="s">"1234"</span><span class="p">;</span>
+  <span class="nx">data</span><span class="p">.</span><span class="na">orderAmount</span> <span class="o">=</span> <span class="mi">450</span><span class="p">;</span>
+  <span class="nx">data</span><span class="p">.</span><span class="na">customerName</span> <span class="o">=</span> <span class="s">"Seth"</span><span class="p">;</span>
+  <span class="nx">data</span><span class="p">.</span><span class="na">customerPhone</span> <span class="o">=</span> <span class="s">"900XXXXX21"</span><span class="p">;</span>
+  <span class="nx">data</span><span class="p">.</span><span class="na">customerEmail</span> <span class="o">=</span> <span class="s">"example@example.com"</span><span class="p">;</span>
+  <span class="nx">data</span><span class="p">.</span><span class="na">returnUrl</span> <span class="o">=</span> <span class="s">"https://mysite.com/payment/response"</span><span class="p">;</span>
+  <span class="nx">data</span><span class="p">.</span><span class="na">notifyUrl</span> <span class="o">=</span> <span class="s">"https://mysite.com/payment/notify"</span><span class="p">;</span>
+  <span class="nx">data</span><span class="p">.</span><span class="na">appId</span> <span class="o">=</span> <span class="s">"&lt;your_app_id&gt;"</span><span class="p">;</span>
+  <span class="nx">data</span><span class="p">.</span><span class="na">paymentToken</span> <span class="o">=</span> <span class="s">"&lt;payment_token&gt;"</span><span class="p">;</span>
+
+  <span class="nx">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="nx">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span> 
+      <span class="nx">var</span> <span class="nx">eventName</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="na">name</span><span class="p">;</span> 
+      <span class="k">switch</span><span class="p">(</span><span class="nx">eventName</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">case</span> <span class="s">"PAYMENT_REQUEST"</span><span class="o">:</span>
+           <span class="nx">console</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="na">message</span><span class="p">);</span>
+           <span class="k">break</span><span class="p">;</span>
+        <span class="na">default</span><span class="o">:</span>
+           <span class="nx">console</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="na">message</span><span class="p">);</span>
+       <span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="nx">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="nx">config</span><span class="p">.</span><span class="na">layout</span> <span class="o">=</span> <span class="p">{</span><span class="na">view</span><span class="o">:</span> <span class="s">"inline"</span><span class="p">,</span> <span class="na">container</span><span class="o">:</span> <span class="s">"payment-div"</span><span class="p">,</span> <span class="na">width</span><span class="o">:</span> <span class="s">"600"</span><span class="p">};</span>
+  <span class="nx">config</span><span class="p">.</span><span class="na">mode</span> <span class="o">=</span> <span class="s">"TEST"</span><span class="p">;</span> <span class="o">//</span><span class="nx">use</span> <span class="nx">PROD</span> <span class="k">when</span> <span class="nx">you</span> <span class="nx">go</span> <span class="nx">live</span>
+  <span class="nx">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">CashFree</span><span class="p">.</span><span class="na">init</span><span class="p">(</span><span class="nx">config</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="na">status</span> <span class="o">==</span> <span class="s">"OK"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">CashFree</span><span class="p">.</span><span class="na">makePayment</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="o">//</span><span class="nx">handle</span> <span class="nx">error</span>
+     <span class="nx">console</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="na">message</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="p">})();</span>
+<span class="o">&lt;/</span><span class="nx">script</span><span class="o">&gt;</span>
+</code></pre><h3 id='inline'>Inline</h3>
+<p>This is first of two sub-modes supported under hosted checkout mode. Cashfree payment form can be embedded anywhere at your page. Form width and color theme can be controlled by you. Code examples are mentioned in the right bar.</p>
+
+<p><img src="images/iframe_inline.png"/></p>
+
+<blockquote>
+<p>Popup mode</p>
+</blockquote>
+<pre class="highlight coffeescript tab-coffeescript"><code><span class="c1"># Paste below code base before the closing tag(&lt;/body&gt;) of body element</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s">"https://www.gocashfree.com/assets/cashfree.sdk.v1.js"</span> <span class="nx">type</span><span class="o">=</span><span class="s">"text/javascript"</span><span class="o">&gt;&lt;/</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s">"text/javascript"</span><span class="o">&gt;</span>
+<span class="p">(</span><span class="nx">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="nx">var</span> <span class="nx">cfInitialized</span> <span class="o">=</span> <span class="no">false</span><span class="p">;</span>
+  <span class="nx">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="nx">data</span><span class="p">.</span><span class="na">orderId</span> <span class="o">=</span> <span class="s">"1234"</span><span class="p">;</span>
+  <span class="nx">data</span><span class="p">.</span><span class="na">orderAmount</span> <span class="o">=</span> <span class="mi">450</span><span class="p">;</span>
+  <span class="nx">data</span><span class="p">.</span><span class="na">customerName</span> <span class="o">=</span> <span class="s">"Seth"</span><span class="p">;</span>
+  <span class="nx">data</span><span class="p">.</span><span class="na">customerPhone</span> <span class="o">=</span> <span class="s">"900XXXXXX21"</span><span class="p">;</span>
+  <span class="nx">data</span><span class="p">.</span><span class="na">customerEmail</span> <span class="o">=</span> <span class="s">"example@example.com"</span><span class="p">;</span>
+  <span class="nx">data</span><span class="p">.</span><span class="na">returnUrl</span> <span class="o">=</span> <span class="s">"https://mysite.com/payment/response"</span><span class="p">;</span>
+  <span class="nx">data</span><span class="p">.</span><span class="na">notifyUrl</span> <span class="o">=</span> <span class="s">"https://mysite.com/payment/notify"</span><span class="p">;</span>
+  <span class="nx">data</span><span class="p">.</span><span class="na">appId</span> <span class="o">=</span> <span class="s">"&lt;your_app_id&gt;"</span><span class="p">;</span>
+  <span class="nx">data</span><span class="p">.</span><span class="na">paymentToken</span> <span class="o">=</span> <span class="s">"&lt;payment_token&gt;"</span><span class="p">;</span>
+
+  <span class="nx">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="nx">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span> 
+      <span class="nx">var</span> <span class="nx">eventName</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="na">name</span><span class="p">;</span> 
+      <span class="k">switch</span><span class="p">(</span><span class="nx">eventName</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">case</span> <span class="s">"PAYMENT_REQUEST"</span><span class="o">:</span>
+           <span class="nx">console</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="na">message</span><span class="p">);</span>
+           <span class="k">break</span><span class="p">;</span>
+        <span class="na">default</span><span class="o">:</span>
+           <span class="nx">console</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="na">message</span><span class="p">);</span>
+       <span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="nx">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="nx">config</span><span class="p">.</span><span class="na">layout</span> <span class="o">=</span> <span class="p">{</span><span class="na">view</span><span class="o">:</span> <span class="s">"popup"</span><span class="p">,</span> <span class="na">width</span><span class="o">:</span> <span class="s">"650"</span><span class="p">};</span>
+  <span class="nx">config</span><span class="p">.</span><span class="na">mode</span> <span class="o">=</span> <span class="s">"TEST"</span><span class="p">;</span> <span class="o">//</span><span class="nx">use</span> <span class="nx">PROD</span> <span class="k">when</span> <span class="nx">you</span> <span class="nx">go</span> <span class="nx">live</span>
+  <span class="nx">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">CashFree</span><span class="p">.</span><span class="na">init</span><span class="p">(</span><span class="nx">config</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="na">status</span> <span class="o">==</span> <span class="s">"OK"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">cfInitialized</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="o">//</span><span class="nx">handle</span> <span class="nx">error</span>
+     <span class="nx">console</span><span class="p">.</span><span class="na">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="na">message</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="c1"># Make sure you put id of your payment button, that triggeres the payment flow, at below statement. </span>
+  <span class="nx">$</span><span class="p">(</span><span class="s">"#paymentButton"</span><span class="p">).</span><span class="na">click</span><span class="p">(</span><span class="nx">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">cfInitialized</span><span class="p">)</span> <span class="p">{</span> 
+      <span class="nx">CashFree</span><span class="p">.</span><span class="na">makePayment</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span> 
+
+<span class="p">})();</span>
+<span class="o">&lt;/</span><span class="nx">script</span><span class="o">&gt;</span>
+</code></pre><h3 id='popup'>Popup</h3>
+<p>This is the second sub-mode. It allows you to host the payment form without making any changes to your page layout. You can control form width and color theme for this sub-mode too. Code examples are mentioned in the right bar.</p>
+
+<p><img src="images/iframe_popup.png"/></p>
+
+<blockquote>
+<p>Sample code to generate payment token</p>
+</blockquote>
+<pre class="highlight php tab-php"><code> <span class="cp">&lt;?php</span>
+   <span class="nv">$appId</span> <span class="o">=</span> <span class="s2">"&lt;your_app_id&gt;"</span><span class="p">;</span> <span class="c1">//replace it with your appId
+</span>   <span class="nv">$secretKey</span> <span class="o">=</span> <span class="s2">"&lt;your_secret_key"</span><span class="o">&gt;</span><span class="s2">"; //replace it with your secret key 
+   </span><span class="nv">$orderId</span><span class="s2"> = "</span><span class="mi">1234</span><span class="s2">"; 
+   </span><span class="nv">$orderAmount</span><span class="s2"> = 450; 
+   </span><span class="nv">$returnUrl</span><span class="s2"> = "</span><span class="nx">https</span><span class="o">://</span><span class="nx">mysite</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">payment</span><span class="o">/</span><span class="nx">response</span><span class="s2">"; 
+   </span><span class="nv">$paymentModes</span><span class="s2"> = ""; //keep it blank to display all supported modes 
+   </span><span class="nv">$tokenData</span><span class="s2"> = "</span><span class="nx">appId</span><span class="o">=</span><span class="s2">".</span><span class="nv">$appId</span><span class="s2">."</span><span class="o">&amp;</span><span class="nx">orderId</span><span class="o">=</span><span class="s2">".</span><span class="nv">$orderId</span><span class="s2">."</span><span class="o">&amp;</span><span class="nx">orderAmount</span><span class="o">=</span><span class="s2">".</span><span class="nv">$orderAmount</span><span class="s2">."</span><span class="o">&amp;</span><span class="nx">returnUrl</span><span class="o">=</span><span class="s2">".</span><span class="nv">$returnUrl</span><span class="s2">."</span><span class="o">&amp;</span><span class="nx">paymentModes</span><span class="o">=</span><span class="s2">".</span><span class="nv">$paymentModes</span><span class="s2">;
+   </span><span class="nv">$token</span><span class="s2"> = hash_hmac('sha256', </span><span class="nv">$tokenData</span><span class="s2">, </span><span class="nv">$secretKey</span><span class="s2">, true);
+   </span><span class="nv">$paymentToken</span><span class="s2"> = base64_encode(</span><span class="nv">$token</span><span class="s2">);
+ ?&gt;
+</span></code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">hmac</span>
+<span class="kn">import</span> <span class="nn">base64</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="s">"appId="</span> <span class="o">+</span> <span class="n">appId</span> <span class="o">+</span> <span class="s">"&amp;orderId="</span> <span class="o">+</span> <span class="n">orderId</span> <span class="o">+</span> <span class="s">"&amp;orderAmount="</span> <span class="o">+</span> <span class="n">orderAmount</span> <span class="o">+</span> <span class="s">"&amp;returnUrl="</span> <span class="o">+</span> <span class="n">returnUrl</span> <span class="o">+</span> <span class="s">"&amp;paymentModes="</span> <span class="o">+</span> <span class="n">paymentModes</span><span class="p">;</span>
+<span class="n">message</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+<span class="n">secret</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">secretKey</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+<span class="n">paymentToken</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span><span class="n">digestmod</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span>
+</code></pre><pre class="highlight java tab-java"><code>  <span class="n">String</span> <span class="n">data</span> <span class="o">=</span> <span class="s">"appId="</span> <span class="o">+</span> <span class="n">appId</span> <span class="o">+</span> <span class="s">"&amp;orderId="</span> <span class="o">+</span> <span class="n">orderId</span> <span class="o">+</span> <span class="s">"&amp;orderAmount="</span> <span class="o">+</span> <span class="n">orderAmount</span> <span class="o">+</span> <span class="s">"&amp;returnUrl="</span> <span class="o">+</span> <span class="n">returnUrl</span> <span class="o">+</span> <span class="s">"&amp;paymentModes="</span> <span class="o">+</span> <span class="n">paymentModes</span><span class="o">;</span>
+  <span class="n">Mac</span> <span class="n">sha256_HMAC</span> <span class="o">=</span> <span class="n">Mac</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="s">"HmacSHA256"</span><span class="o">);</span>
+  <span class="n">SecretKeySpec</span> <span class="n">skspec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SecretKeySpec</span><span class="o">(</span><span class="n">secretKey</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(),</span><span class="s">"HmacSHA256"</span><span class="o">);</span>
+  <span class="n">sha256_HMAC</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="n">skspec</span><span class="o">);</span>
+  <span class="n">paymentToken</span> <span class="o">=</span> <span class="n">Base64</span><span class="o">.</span><span class="na">encodeBase64String</span><span class="o">(</span><span class="n">sha256_HMAC</span><span class="o">.</span><span class="na">doFinal</span><span class="o">(</span><span class="n">data</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Security.Cryptography</span><span class="p">;</span>
+
+
+<span class="k">namespace</span> <span class="nn">HttpUtils</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">class</span> <span class="nc">CashFreeToken</span>
+  <span class="p">{</span>
+     <span class="k">private</span> <span class="kt">string</span> <span class="nf">CreateToken</span><span class="p">(</span><span class="kt">string</span> <span class="n">message</span><span class="p">,</span> <span class="kt">string</span> <span class="n">secret</span><span class="p">){</span>
+       <span class="n">secret</span> <span class="p">=</span> <span class="n">secret</span> <span class="p">??</span> <span class="s">""</span><span class="p">;</span>
+       <span class="kt">var</span> <span class="n">encoding</span> <span class="p">=</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="nf">ASCIIEncoding</span><span class="p">();</span>
+       <span class="kt">byte</span><span class="p">[]</span> <span class="n">keyByte</span> <span class="p">=</span> <span class="n">encoding</span><span class="p">.</span><span class="nf">GetBytes</span><span class="p">(</span><span class="n">secret</span><span class="p">);</span>
+       <span class="kt">byte</span><span class="p">[]</span> <span class="n">messageBytes</span> <span class="p">=</span> <span class="n">encoding</span><span class="p">.</span><span class="nf">GetBytes</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+       <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">hmacsha256</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">HMACSHA256</span><span class="p">(</span><span class="n">keyByte</span><span class="p">))</span>
+       <span class="p">{</span>
+         <span class="kt">byte</span><span class="p">[]</span> <span class="n">hashmessage</span> <span class="p">=</span> <span class="n">hmacsha256</span><span class="p">.</span><span class="nf">ComputeHash</span><span class="p">(</span><span class="n">messageBytes</span><span class="p">);</span>
+         <span class="k">return</span> <span class="n">Convert</span><span class="p">.</span><span class="nf">ToBase64String</span><span class="p">(</span><span class="n">hashmessage</span><span class="p">);</span>
+       <span class="p">}</span>
+     <span class="p">}</span>
+
+     <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">()</span> <span class="p">{</span> 
+       <span class="n">String</span> <span class="n">appId</span> <span class="p">=</span> <span class="s">"&lt;Your_APP_ID&gt;"</span><span class="p">;</span>
+       <span class="n">String</span> <span class="n">orderId</span> <span class="p">=</span> <span class="s">"&lt;Your_Order_ID&gt;"</span><span class="p">;</span>
+       <span class="n">String</span> <span class="n">orderAmount</span> <span class="p">=</span> <span class="s">"&lt;Order_amount&gt;"</span><span class="p">;</span>
+       <span class="n">String</span> <span class="n">returnUrl</span> <span class="p">=</span> <span class="s">"&lt;return_url&gt;"</span><span class="p">;</span>
+       <span class="n">String</span> <span class="n">paymentModes</span> <span class="p">=</span> <span class="s">""</span><span class="p">;</span>
+       <span class="n">String</span> <span class="n">secret</span> <span class="p">=</span> <span class="s">"&lt;secret_key&gt;"</span><span class="p">;</span>
+
+       <span class="n">String</span> <span class="n">data</span> <span class="p">=</span> <span class="s">"appId="</span> <span class="p">+</span> <span class="n">appId</span> <span class="p">+</span> <span class="s">"&amp;orderId="</span> <span class="p">+</span> <span class="n">orderId</span> <span class="p">+</span> <span class="s">"&amp;orderAmount="</span> <span class="p">+</span> <span class="n">orderAmount</span> <span class="p">+</span> <span class="s">"&amp;returnUrl="</span> <span class="p">+</span> <span class="n">returnUrl</span> <span class="p">+</span> <span class="s">"&amp;paymentModes="</span> <span class="p">+</span> <span class="n">paymentModes</span><span class="p">;</span>
+
+       <span class="n">CashFreeToken</span> <span class="n">n</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">CashFreeToken</span><span class="p">();</span>
+       <span class="n">String</span> <span class="n">signature</span> <span class="p">=</span> <span class="n">n</span><span class="p">.</span><span class="nf">CreateToken</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">secret</span><span class="p">);</span>
+       <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">signature</span><span class="p">);</span>
+     <span class="p">}</span>
+  <span class="p">}</span> 
+<span class="p">}</span>
+
+</code></pre><h3 id='json-data-parameters'>JSON data parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>appId*</td>
+<td>Your app id</td>
+</tr>
+<tr>
+<td>orderId*</td>
+<td>Order/Reference Id</td>
+</tr>
+<tr>
+<td>orderAmount*</td>
+<td>Bill amount of the order</td>
+</tr>
+<tr>
+<td>orderNote</td>
+<td>A help text to make customers know more about the order</td>
+</tr>
+<tr>
+<td>customerName</td>
+<td>Name of the customer</td>
+</tr>
+<tr>
+<td>customerPhone*</td>
+<td>Phone number of customer</td>
+</tr>
+<tr>
+<td>customerEmail*</td>
+<td>Email id of the customer</td>
+</tr>
+<tr>
+<td>returnUrl*</td>
+<td>Return URL to which user will be redirected after the payment</td>
+</tr>
+<tr>
+<td>notifyUrl</td>
+<td>Notification URL for server-server communication. Useful when user’s connection drops while re-directing. <b>notifyUrl should be an https URL</b></td>
+</tr>
+<tr>
+<td>paymentModes</td>
+<td>Allowed payment modes for this order. Available values: cc, dc, nb, paypal, wallet. <strong>Leave it blank if you want to display all modes</strong></td>
+</tr>
+<tr>
+<td>paymentToken*</td>
+<td>Unique token to be generated for each new order. Refer example section in right for code samples</td>
+</tr>
+</tbody></table>
+<h3 id='configuration-parameters'>Configuration parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>mode</td>
+<td>Inetgration stage. Values could be <strong>TEST</strong> or <strong>PROD</strong></td>
+</tr>
+<tr>
+<td>layout</td>
+<td>javascript object to define layout</td>
+</tr>
+<tr>
+<td>layout.view</td>
+<td>(i) <i>&quot;inline&quot;</i> for inline view (ii) <i>&quot;popup&quot;</i> for popup (iii) <i>&quot;page&quot;</i> for standard redirect flow</td>
+</tr>
+<tr>
+<td>layout.width</td>
+<td>Width of payment form. Value should be a number. Could be in range of 500 to 700.</td>
+</tr>
+<tr>
+<td>layout.container</td>
+<td>Applicable(and mandatory) for inline view. Id of a html div/section into which payment form will be rendered.</td>
+</tr>
+</tbody></table>
+<h2 id='api-integration'>API Integration</h2>
+<p>We also support REST API integration to enable you collect payment at your website. Please refer <a href="#create-order">create order via API</a> section to learn how to create new order via an API call. </p>
+
+<aside class="success">Redirect user to the payment link you receive as part of the API response</aside>
+<h2 id='mobile-app'>Mobile App</h2><h3 id='android-integration'>Android Integration</h3>
+<p>Use our library to integrate the Cashfree Payment Gateway directly into your app using CashfreeSDK for Android. 
+CashfreeSDK has been designed to offload the complexity of handling and integrating payments in your app.</p>
+
+<p>The CashfreeSDK is available at a publicly hosted github repo as an AAR (link below). Instructions on importing the lib is also provided.</p>
+
+<p><a href='https://github.com/cashfree/cashfree-android-sdk-v0' target='_blank'>CashFree Android SDK V0</a></p>
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Switch to Java tab to see the code examples
 </aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p><b> Details </b></p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<p>The CashfreeSDK requires that you add the permissions shown on the right panel in your Android Manifest</p>
+<pre class="highlight html tab-html"><code>    <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.INTERNET"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.ACCESS_NETWORK_STATE"</span> <span class="nt">/&gt;</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Prototype of the doPayment method of CFPaymentService</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<pre class="highlight java tab-java"><code>
+    <span class="cm">/***
+     * This method handles the payment gateway invocation.
+     *
+     * @param context Android context of the calling method
+     * @param params Map containing all the parameters required for creating a payment order
+     * @param checksumUrl Provide the checksumUrl to verify the integrity of the transaction
+     * @param callback Reference of the class which will be notified on completion of the request
+     *                 via a callback
+     * @param stage Indetifies if test or production service needs to be invoked. Possible values:
+     *              PROD, TEST.
+     */</span>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doPayment</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">params</span><span class="o">,</span>
+                          <span class="n">String</span> <span class="n">checksumUrl</span><span class="o">,</span> <span class="n">CFClientInterface</span> <span class="n">callback</span><span class="o">,</span> <span class="n">String</span> <span class="n">stage</span><span class="o">)</span> <span class="o">{</span>
+</code></pre>
+<blockquote>
+<p>Invoke the payment gateway with a couple of lines of code from your activity</p>
+</blockquote>
+<pre class="highlight java tab-java"><code>
+<span class="n">CFPaymentService</span> <span class="n">cfpay</span> <span class="o">=</span> <span class="n">CFPaymentService</span><span class="o">.</span><span class="na">getCFPaymentServiceInstance</span><span class="o">();</span>
+<span class="n">cfpay</span><span class="o">.</span><span class="na">doPayment</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">params</span><span class="o">,</span> <span class="n">checksum</span><span class="o">,</span> <span class="k">this</span><span class="o">);</span>
+</code></pre>
+<aside class="warning">
+We support integration from API level 15. Do ensure that the minSdkVersion in the build.gradle of your app is equal(or greater) than that.
+</aside>
+
+<p>Please follow the below mentioned steps after pulling in CashfreeSDK into your setup.</p>
+
+<p><b> Steps for using the CashfreeSDK </b></p>
+
+<ol>
+<li><p>Implement the CFClientInterface in the calling activity.</p></li>
+<li><p>Get the instance of the CFPaymentService </p></li>
+<li><p>Use doPayment method on the CFPaymentService to invoke the CashfreeSDK. Look at the adjoining code example for more information. </p></li>
+<li><p>Typically the context will be provided by the calling activity, the callback should also be handled by implementing the methods of CFClientInterface. </p></li>
+<li><p>A merchant hosted Checksum generation url should be provided. This allows us to verify the integrity of transaction. Please refer to the checksum generation section for a sample of checksum generation code. </p></li>
+<li><p>Parameters include order and customer details. Refer to the table below for the full list:</p></li>
+</ol>
+
+<p><b> Checksum Generation </b></p>
+
+<p>The checksum is a SHA256 hash of the values involved in the transaction. Please see the example scripts for more information.
+Please ensure that checksum scripts responds with the JSON encoded information in the following format</p>
+
+<p>{
+  &quot;orderId&quot; : order_id_value,
+  &quot;checksum&quot; : checksum_value,
+  &quot;status&quot; : &quot;OK&quot;
+}</p>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+ <span class="nv">$appId</span> <span class="o">=</span> <span class="o">...</span> <span class="c1">//CODE for fetching your appId from your config files
+</span> <span class="nv">$secretKey</span> <span class="o">...</span> <span class="c1">//CODE to fetching your secretKey from your config files
+</span>
+ <span class="c1">//The postData initializes its values from the Post parameters
+</span> <span class="k">foreach</span><span class="p">(</span><span class="nv">$_POST</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nv">$postData</span><span class="p">[</span><span class="nv">$key</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="nv">$key</span><span class="p">];</span>
+ <span class="p">}</span>
+
+ <span class="c1">// Also add appId  
+</span>  <span class="nv">$postData</span><span class="p">[</span><span class="s2">"appId"</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$appId</span><span class="p">;</span>
+
+ <span class="c1">// combine all of the data into a single string as shown below
+</span> <span class="nb">ksort</span><span class="p">(</span><span class="nv">$postData</span><span class="p">);</span>
+ <span class="nv">$checksumData</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+ <span class="k">foreach</span> <span class="p">(</span><span class="nv">$postData</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">){</span>
+      <span class="nv">$checksumData</span> <span class="o">.=</span> <span class="nv">$key</span><span class="o">.</span><span class="nv">$value</span><span class="p">;</span>
+ <span class="p">}</span>
+
+ <span class="nv">$checksum</span> <span class="o">=</span> <span class="nb">hash_hmac</span><span class="p">(</span><span class="s1">'sha256'</span><span class="p">,</span> <span class="nv">$checksumData</span><span class="p">,</span> <span class="nv">$secretKey</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+ <span class="nv">$checksum</span> <span class="o">=</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$checksum</span><span class="p">);</span>
+
+ <span class="c1">// This is how the response is expected
+</span> <span class="nv">$response</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s2">"orderId"</span> <span class="o">=&gt;</span> <span class="nv">$orderId</span><span class="p">,</span> <span class="s2">"checksum"</span> <span class="o">=&gt;</span> <span class="nv">$checksum</span><span class="p">,</span> <span class="s2">"status"</span> <span class="o">=&gt;</span> <span class="s2">"OK"</span><span class="p">);</span>
+ <span class="k">echo</span> <span class="nb">json_encode</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre><pre class="highlight java tab-java"><code>
+  <span class="n">String</span> <span class="n">appId</span> <span class="o">=</span> <span class="o">..;</span> <span class="c1">//CODE to retreive the APP ID from your config</span>
+  <span class="n">String</span> <span class="n">secretKey</span> <span class="o">=</span> <span class="o">..;</span> <span class="c1">//CODE to retreive the SECRET KEY from your config</span>
+
+  <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">postData</span> <span class="o">=</span> <span class="o">..;</span> <span class="c1">//CODE For retreiving all Post Parameters as Hashmap</span>
+
+  <span class="n">postData</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"appId"</span><span class="o">,</span> <span class="n">appId</span><span class="o">);</span> <span class="c1">//ensure that appId is initialized from your config</span>
+  <span class="err">￼</span>
+  <span class="c1">//Generate Checksum</span>
+  <span class="n">String</span> <span class="n">data</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+  <span class="n">SortedSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">keys</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;(</span><span class="n">postData</span><span class="o">.</span><span class="na">keySet</span><span class="o">());</span>
+  <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">key</span> <span class="o">:</span> <span class="n">keys</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="n">postData</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="n">Mac</span> <span class="n">sha256_HMAC</span> <span class="o">=</span> <span class="n">Mac</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="s">"HmacSHA256"</span><span class="o">);</span>
+  <span class="n">SecretKeySpec</span> <span class="n">secret_key_spec</span> <span class="o">=</span> <span class="k">new</span>
+  <span class="n">SecretKeySpec</span><span class="o">(</span><span class="n">secretKey</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(),</span><span class="s">"HmacSHA256"</span><span class="o">);</span>
+  <span class="n">sha256_HMAC</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="n">secret_key_spec</span><span class="o">);</span>
+
+  <span class="n">String</span> <span class="n">checksum</span> <span class="o">=</span> <span class="n">Base64</span><span class="o">.</span><span class="na">getEncoder</span><span class="o">().</span><span class="na">encodeToString</span><span class="o">(</span><span class="n">sha256_HMAC</span><span class="o">.</span><span class="na">doFinal</span><span class="o">(</span><span class="n">data</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
+
+
+  <span class="c1">//Prepare the response JSON</span>
+  <span class="n">JSONObject</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JSONObject</span><span class="o">();</span>
+  <span class="n">obj</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"orderId"</span><span class="o">,</span> <span class="n">postData</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"orderId"</span><span class="o">));</span>
+  <span class="n">obj</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"checksum"</span><span class="o">,</span> <span class="n">checksum</span><span class="o">);</span>
+
+  <span class="n">obj</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"status"</span><span class="o">,</span> <span class="s">"OK"</span><span class="o">);</span>
+
+  <span class="c1">//Return the JSON Response</span>
+  <span class="n">String</span> <span class="n">jsonResponse</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+
+</code></pre>
+<p><b> Parameters for the CFPaymentService </b></p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -389,38 +2021,65 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>appId*</td>
+<td>Your app id</td>
+</tr>
+<tr>
+<td>orderId*</td>
+<td>Order/Reference Id</td>
+</tr>
+<tr>
+<td>orderAmount*</td>
+<td>Bill amount of the order</td>
+</tr>
+<tr>
+<td>orderNote</td>
+<td>A help text to make customers know more about the order</td>
+</tr>
+<tr>
+<td>customerName*</td>
+<td>Name of the customer</td>
+</tr>
+<tr>
+<td>customerPhone*</td>
+<td>Phone number of customer</td>
+</tr>
+<tr>
+<td>customerEmail*</td>
+<td>Email id of the customer</td>
+</tr>
+<tr>
+<td>checksumUrl*</td>
+<td>Link hosted on your server, that computes and returns a signature for the parameters sent to it</td>
+</tr>
+<tr>
+<td>notifyUrl</td>
+<td>Notification URL for server-server communication. Useful when user’s connection drops while re-directing. <b>notifyUrl should be an https URL</b></td>
+</tr>
+<tr>
+<td>paymentModes</td>
+<td>Allowed payment modes for this order. Available values: cc, dc, nb, paypal, wallet. <strong>Leave it blank if you want to display all modes</strong></td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p><b> Response parameters, shared with callback functions</b></p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Please refer to left panel for information on params argument </p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">CFClientInterface</span> <span class="o">{</span>
+    <span class="c1">// The Payment succeeded</span>
+    <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">params</span><span class="o">);</span>
+
+    <span class="c1">// Payment did not succeed </span>
+    <span class="kt">void</span> <span class="nf">onFailure</span><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">params</span><span class="o">);</span>
+
+    <span class="c1">// The user navigated back from payment activity</span>
+    <span class="kt">void</span> <span class="nf">onNavigateBack</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre>
+<p>These parameters are returned to the callback functions you implement (for e.g. params argument of the CFClientInterface onSuccess() method). They contain the details of the transaction.</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -428,74 +2087,255 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>orderId</td>
+<td>Order id for which transaction has been processed. Ex: GZ-212</td>
+</tr>
+<tr>
+<td>orderAmount</td>
+<td>Amount of the order. Ex: 256.00</td>
+</tr>
+<tr>
+<td>referenceId</td>
+<td>Cashfree generated unique transaction Id. Ex: 140388038803</td>
+</tr>
+<tr>
+<td>txStatus</td>
+<td>Payment status for that order. Values can be : SUCCESS, FLAGGED, FAILED, CANCELED.</td>
+</tr>
+<tr>
+<td>paymentMode</td>
+<td>Payment mode used by customer to make the payment. Ex: DEBIT_CARD, MobiKwik, etc..</td>
+</tr>
+<tr>
+<td>txMsg</td>
+<td>Message related to the transaction. Will have the reason, if payment failed</td>
+</tr>
+<tr>
+<td>txTime</td>
+<td>Time of the transaction</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
+<h1 id='payment-response'>Payment Response</h1>
+<aside class="success">
+Response data is same for both returnUrl and notifyUrl.
+</aside>
 
-<p>The Kittn API uses the following error codes:</p>
+<aside class="warning">
+returnUrl is not applicable for few of the integration modes (like App integration), however you can choose to pass notifyUrl parameter to receive a communication to your server on successful payment completion.
+</aside>
 
+<p>We send response paramaters to both returnUrl and notifyUrl(which were passed during the payment request) via HTTP POST method. Please note few times due to drop in network connection at user&#39;s end, users fail to load the returnUrl in the browser and thus response couldn&#39;t get processed. </p>
+
+<p>To have a fallback for such instances, we recommend you to use notifyUrl to receive same set of parameters through a server-server communication. You can update the order status on receiving response at the notifyUrl if redirect to returnUrl fails.</p>
+<h3 id='response-parameters-9'>Response Parameters</h3>
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Parameter</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request sucks.</td>
+<td>orderId</td>
+<td>Order id for which transaction has been processed. Ex: GZ-212</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>orderAmount</td>
+<td>Amount of the order. Ex: 256.00</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>referenceId</td>
+<td>Cashfree generated unique transaction Id. Ex: 140388038803</td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>txStatus</td>
+<td>Payment status for that order. Values can be : SUCCESS, FLAGGED, FAILED, CANCELED.</td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td>paymentMode</td>
+<td>Payment mode used by customer to make the payment. Ex: DEBIT_CARD, MobiKwik, etc..</td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+<td>txMsg</td>
+<td>Message related to the transaction. Will have the reason, if payment failed</td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
+<td>txTime</td>
+<td>Time of the transaction</td>
 </tr>
 <tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>signature</td>
+<td>HMAC value of the data being passed. Generated using SHA256 hash function in combination with merchant’s API secret key (Your API secret key can be retrieved from &quot;<b>Settings -&gt; API Access</b>&quot; tab). Purpose of this argument is to authenticate the server call. We will generate a signature at our end and expect you to do the same with the POSTED data and match it with the passed argument.</td>
 </tr>
 </tbody></table>
+<h3 id='hash-generation'>Hash Generation</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+  <span class="nv">$orderId</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">"orderId"</span><span class="p">];</span>
+  <span class="nv">$orderAmount</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">"orderAmount"</span><span class="p">];</span>
+  <span class="nv">$referenceId</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">"referenceId"</span><span class="p">];</span>
+  <span class="nv">$txStatus</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">"txStatus"</span><span class="p">];</span>
+  <span class="nv">$paymentMode</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">"paymentMode"</span><span class="p">];</span>
+  <span class="nv">$txMsg</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">"txMsg"</span><span class="p">];</span>
+  <span class="nv">$txTime</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">"txTime"</span><span class="p">];</span>
+  <span class="nv">$signature</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s2">"signature"</span><span class="p">];</span>
+
+  <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$orderId</span><span class="o">.</span><span class="nv">$orderAmount</span><span class="o">.</span><span class="nv">$referenceId</span><span class="o">.</span><span class="nv">$txStatus</span><span class="o">.</span><span class="nv">$paymentMode</span><span class="o">.</span><span class="nv">$txMsg</span><span class="o">.</span><span class="nv">$txTime</span><span class="p">;</span>
+  <span class="nv">$hash_hmac</span> <span class="o">=</span> <span class="nb">hash_hmac</span><span class="p">(</span><span class="s1">'sha256'</span><span class="p">,</span> <span class="nv">$data</span><span class="p">,</span> <span class="nv">$secretkey</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span> <span class="p">;</span>
+  <span class="nv">$computedSignature</span> <span class="o">=</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$hash_hmac</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nv">$signature</span> <span class="o">==</span> <span class="nv">$computedSignature</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Proceed
+</span>  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// Reject this call
+</span>  <span class="p">}</span>
+<span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">hmac</span>
+<span class="kn">import</span> <span class="nn">base64</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">orderId</span> <span class="o">+</span> <span class="n">orderAmount</span> <span class="o">+</span> <span class="n">referenceId</span> <span class="o">+</span> <span class="n">txStatus</span> <span class="o">+</span> <span class="n">paymentMode</span> <span class="o">+</span> <span class="n">txMsg</span> <span class="o">+</span> <span class="n">txTim</span>
+<span class="n">message</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+<span class="n">secret</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">secretKey</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+<span class="n">signature</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span><span class="n">digestmod</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">signature</span> <span class="o">!=</span> <span class="n">computedSignature</span><span class="p">):</span>
+    <span class="o">//</span><span class="n">Reject</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="o">//</span><span class="n">Proceed</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'openssl'</span>
+<span class="nb">require</span> <span class="s2">"base64"</span>
+<span class="nb">hash</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">HMAC</span><span class="p">.</span><span class="nf">digest</span><span class="p">(</span><span class="s1">'sha256'</span><span class="p">,</span> <span class="n">secretKey</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="n">computedSignature</span> <span class="o">=</span> <span class="no">Base64</span><span class="p">.</span><span class="nf">encode64</span><span class="p">(</span><span class="nb">hash</span><span class="p">)</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="kn">import</span> <span class="nn">javax.crypto.Mac</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.crypto.spec.SecretKeySpec</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.commons.codec.binary.Base64</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ComputedSignature</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">generateHMAC</span><span class="o">(</span><span class="n">String</span> <span class="n">secretKey</span><span class="o">,</span> <span class="n">String</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">String</span> <span class="n">hash</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="n">String</span> <span class="n">secret</span> <span class="o">=</span> <span class="n">secretKey</span><span class="o">;</span>
+      <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">data</span><span class="o">;</span>
+      <span class="n">Mac</span> <span class="n">sha256_HMAC</span> <span class="o">=</span> <span class="n">Mac</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="s">"HmacSHA256"</span><span class="o">);</span>
+      <span class="n">SecretKeySpec</span> <span class="n">secret_key</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SecretKeySpec</span><span class="o">(</span><span class="n">secret</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(),</span><span class="s">"HmacSHA256"</span><span class="o">);</span>
+      <span class="n">sha256_HMAC</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="n">secret_key</span><span class="o">);</span>
+      <span class="n">hash</span> <span class="o">=</span> <span class="n">Base64</span><span class="o">.</span><span class="na">encodeBase64String</span><span class="o">(</span><span class="n">sha256_HMAC</span><span class="o">.</span><span class="na">doFinal</span><span class="o">(</span><span class="n">message</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
+    <span class="o">}</span>
+    <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">){</span>
+      <span class="c1">//Log it</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">hash</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre><pre class="highlight csharp tab-csharp"><code><span class="c1">//Compiler version 4.0.30319.17929 for Microsoft (R) .NET Framework 4.5</span>
+
+<span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Security.Cryptography</span><span class="p">;</span>
+<span class="k">namespace</span> <span class="nn">Rextester</span> <span class="p">{</span>
+  <span class="k">public</span> <span class="k">class</span> <span class="nc">Program</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="kt">string</span> <span class="nf">CreateToken</span><span class="p">(</span><span class="kt">string</span> <span class="n">message</span><span class="p">,</span> <span class="kt">string</span> <span class="n">secret</span><span class="p">){</span>
+      <span class="n">secret</span> <span class="p">=</span> <span class="n">secret</span> <span class="p">??</span> <span class="s">""</span><span class="p">;</span>
+      <span class="kt">var</span> <span class="n">encoding</span> <span class="p">=</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">Text</span><span class="p">.</span><span class="nf">ASCIIEncoding</span><span class="p">();</span>
+      <span class="kt">byte</span><span class="p">[]</span> <span class="n">keyByte</span> <span class="p">=</span> <span class="n">encoding</span><span class="p">.</span><span class="nf">GetBytes</span><span class="p">(</span><span class="n">secret</span><span class="p">);</span>
+      <span class="kt">byte</span><span class="p">[]</span> <span class="n">messageBytes</span> <span class="p">=</span> <span class="n">encoding</span><span class="p">.</span><span class="nf">GetBytes</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+      <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">hmacsha256</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">HMACSHA256</span><span class="p">(</span><span class="n">keyByte</span><span class="p">))</span>
+      <span class="p">{</span>
+        <span class="kt">byte</span><span class="p">[]</span> <span class="n">hashmessage</span> <span class="p">=</span> <span class="n">hmacsha256</span><span class="p">.</span><span class="nf">ComputeHash</span><span class="p">(</span><span class="n">messageBytes</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">Convert</span><span class="p">.</span><span class="nf">ToBase64String</span><span class="p">(</span><span class="n">hashmessage</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kt">string</span> <span class="n">secret</span> <span class="p">=</span> <span class="s">"&lt;Your_secret_key&gt;"</span><span class="p">;</span>
+      <span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="n">orderId</span> <span class="p">+</span> <span class="n">orderAmount</span> <span class="p">+</span> <span class="n">referenceId</span> <span class="p">+</span>
+      <span class="n">txStatus</span> <span class="p">+</span> <span class="n">paymentMode</span> <span class="p">+</span> <span class="n">txMsg</span> <span class="p">+</span> <span class="n">txTime</span><span class="p">;</span><span class="n">Program</span> <span class="n">n</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Program</span><span class="p">();</span>
+      <span class="kt">string</span> <span class="n">signature</span> <span class="p">=</span> <span class="n">n</span><span class="p">.</span><span class="nf">CreateToken</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">secret</span><span class="p">);</span>
+      <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">signature</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'crypto'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">hmac</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">,</span> <span class="nx">secret</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">hmac</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'crypto'</span><span class="p">).</span><span class="nx">createHmac</span><span class="p">(</span><span class="s1">'sha256'</span><span class="p">,</span> <span class="nx">secret</span><span class="p">);</span>
+  <span class="nx">hmac</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">hmac</span><span class="p">.</span><span class="nx">digest</span><span class="p">(</span><span class="s1">'base64'</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">orderId</span> <span class="o">=</span> <span class="s2">"FLSQ103"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">orderAmount</span> <span class="o">=</span> <span class="s2">"51"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">referenceId</span> <span class="o">=</span> <span class="s2">"1470045350650"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">status</span> <span class="o">=</span> <span class="s2">"SUCCESS"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">paymentMode</span> <span class="o">=</span> <span class="s2">"NET_BANKING"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="s2">"Transaction Completed"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">txTime</span> <span class="o">=</span> <span class="s2">"2016-08-01 15:26:23"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">accesskey</span> <span class="o">=</span> <span class="s2">"63ca0b83c8ca85d73fff9c3fd29a7c87e292fd63"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">dataToHash</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">orderId</span><span class="p">,</span> <span class="nx">orderAmount</span><span class="p">,</span> <span class="nx">referenceId</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span>
+<span class="nx">paymentMode</span><span class="p">,</span> <span class="nx">message</span><span class="p">,</span> <span class="nx">txTime</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">hmac</span><span class="p">(</span><span class="nx">dataToHash</span><span class="p">,</span> <span class="nx">accesskey</span><span class="p">));</span>
+
+</code></pre>
+<p>Browse through language tabs on the right to see how you can generate hash for respective language.
+<aside class="warning">
+ Verifying signature is RECOMMENDED before processing any response sent by CashFree. 
+</aside></p>
+<h1 id='test-data'>Test Data</h1><h2 id='test-card'>Test Card</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>4444 3333 2222 1111</td>
+</tr>
+<tr>
+<td>Expiry</td>
+<td>07/18</td>
+</tr>
+<tr>
+<td>CVV</td>
+<td>123</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Test</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>4111 1111 1111 1111</td>
+</tr>
+<tr>
+<td>Expiry</td>
+<td>07/18</td>
+</tr>
+<tr>
+<td>CVV</td>
+<td>123</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Test</td>
+</tr>
+</tbody></table>
+<h2 id='test-net-banking'>Test Net Banking</h2>
+<p>Use &quot;TEST Bank&quot; while testing Net Banking payment mode</p>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="php">PHP</a>
+                <a href="#" data-language-name="java">Java</a>
+                <a href="#" data-language-name="python">Python</a>
+                <a href="#" data-language-name="csharp">C#</a>
+                <a href="#" data-language-name="javascript">node.js</a>
+                <a href="#" data-language-name="ruby">Ruby</a>
           </div>
       </div>
     </div>
